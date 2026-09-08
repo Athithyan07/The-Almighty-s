@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { LoadingScreen } from "@/components/LoadingScreen";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sasc-f.onrender.com"),
   title: "The Almighty's Matriculation School | Nurturing Future Minds",
   description:
     "The Almighty's Matriculation School - A premier educational institution fostering academic excellence, moral integrity, modern STEM literacy, and holistic student growth.",
