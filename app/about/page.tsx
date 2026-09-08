@@ -20,7 +20,7 @@ export default function AboutPage() {
     <div className="w-full overflow-x-hidden">
 
       {/* ══ HERO WITH CAMPUS IMAGE ══ */}
-      <section className="relative pt-24 pb-14 sm:pt-28 sm:pb-24 px-4 sm:px-8 lg:px-12 text-center overflow-hidden">
+      <section className="relative pt-20 pb-10 sm:pt-28 sm:pb-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden">
         <Image
           src="/1.jpg"
           alt="School Campus Grounds"
@@ -33,8 +33,8 @@ export default function AboutPage() {
 
         <Scroll3DReveal direction="up" className="max-w-4xl mx-auto">
           {/* Emblem */}
-          <div className="flex justify-center mb-5 sm:mb-8">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl p-1 backdrop-blur-[5px] bg-white/40 dark:bg-black/40 border border-amber-600/30 dark:border-amber-400/35 shadow-xl">
+          <div className="flex justify-center mb-4 sm:mb-8">
+            <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-2xl p-1 backdrop-blur-[5px] bg-white/40 dark:bg-black/40 border border-amber-600/30 dark:border-amber-400/35 shadow-xl">
               <Image
                 src="/logo.png"
                 alt="The Almighty's Matriculation School Logo"
@@ -46,28 +46,28 @@ export default function AboutPage() {
 
           <LiquidGlassCard
             enableTilt={false}
-            className="p-6 sm:p-12 rounded-3xl sm:rounded-[2.5rem] border border-white/40 dark:border-white/20 shadow-2xl backdrop-blur-[5px] inline-block max-w-full"
+            className="p-5 sm:p-12 rounded-3xl sm:rounded-[2.5rem] border border-white/40 dark:border-white/20 shadow-2xl backdrop-blur-[5px] inline-block max-w-full"
           >
             <LiquidGlassBadge variant="gold" size="sm" className="mb-3 sm:mb-4">
               Our Foundation & Vision
             </LiquidGlassBadge>
 
-            <h1 className="editorial-heading-lg" style={{ fontSize: "clamp(2.2rem, 7.5vw, 6.5rem)" }}>
+            <h1 className="editorial-heading-lg" style={{ fontSize: "clamp(2rem, 6.5vw, 6.5rem)" }}>
               Nurturing Futures
               <br />
               <em className="text-[#C9A84C] italic">With Character & Virtue</em>
             </h1>
 
-            <div className="gold-line max-w-xs mx-auto my-4 sm:my-6" />
+            <div className="gold-line max-w-xs mx-auto my-3 sm:my-6" />
 
             <p
-              className="luxury-text-readable font-editorial italic text-neutral-800 dark:text-neutral-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+              className="luxury-text-readable font-editorial italic text-neutral-800 dark:text-neutral-200 text-xs sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
             >
               Founded on the bedrock of moral virtue, scholastic rigor, and compassionate guidance,
               we empower every student to ignite their highest potential.
             </p>
 
-            <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+            <div className="mt-5 sm:mt-8 flex flex-wrap justify-center gap-2.5 sm:gap-4">
               <a
                 href="https://sasc-f.onrender.com/login"
                 target="_blank"
@@ -86,7 +86,7 @@ export default function AboutPage() {
 
       {/* ══ CHARTER & STATS SPLIT ══ */}
       <section
-        className="relative py-14 sm:py-20 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start relative z-10">
           {/* Left: School Charter */}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 export interface LiquidGlassCardProps {
@@ -23,8 +23,13 @@ export const LiquidGlassCard: React.FC<LiquidGlassCardProps> = ({
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  // 3D Parallax Tilt Values
+  useEffect(() => {
+    setIsDesktop(window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches);
+  }, []);
+
+  // 3D Parallax Tilt Values (Active only on fine pointer desktop)
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -32,29 +37,29 @@ export const LiquidGlassCard: React.FC<LiquidGlassCardProps> = ({
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [6, -6]), springConfig);
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-6, 6]), springConfig);
 
+  const canTilt = enableTilt && isDesktop;
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!canTilt || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const clientX = e.clientX - rect.left;
     const clientY = e.clientY - rect.top;
 
     setMousePos({ x: clientX, y: clientY });
 
-    if (enableTilt) {
-      const normalizedX = clientX / rect.width - 0.5;
-      const normalizedY = clientY / rect.height - 0.5;
-      x.set(normalizedX);
-      y.set(normalizedY);
-    }
+    const normalizedX = clientX / rect.width - 0.5;
+    const normalizedY = clientY / rect.height - 0.5;
+    x.set(normalizedX);
+    y.set(normalizedY);
   };
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
+    if (isDesktop) setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    if (enableTilt) {
+    if (canTilt) {
       x.set(0);
       y.set(0);
     }
@@ -68,18 +73,19 @@ export const LiquidGlassCard: React.FC<LiquidGlassCardProps> = ({
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       style={{
-        rotateX: enableTilt ? rotateX : 0,
-        rotateY: enableTilt ? rotateY : 0,
-        transformStyle: "preserve-3d",
-        perspective: 1000,
+        rotateX: canTilt ? rotateX : 0,
+        rotateY: canTilt ? rotateY : 0,
+        transformStyle: canTilt ? "preserve-3d" : "flat",
+        perspective: canTilt ? 1000 : undefined,
+        transform: "translateZ(0)",
         ...style,
       }}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-      className={`liquid-glass-card group relative rounded-3xl p-6 sm:p-8 cursor-pointer overflow-hidden ${className}`}
+      whileHover={isDesktop ? { y: -4 } : undefined}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className={`liquid-glass-card group relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 ${className}`}
     >
-      {/* Specular Mouse Highlight */}
-      {isHovered && (
+      {/* Specular Mouse Highlight on Desktop */}
+      {isHovered && isDesktop && (
         <div
           className="pointer-events-none absolute -inset-px transition-opacity duration-300 opacity-100"
           style={{

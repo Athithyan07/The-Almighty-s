@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface Scroll3DRevealProps {
@@ -17,39 +17,28 @@ export function Scroll3DReveal({
   direction = "up",
   className = "",
 }: Scroll3DRevealProps) {
-  // Stagger calculation: elements enter gently in sequence
-  const staggerDelay = Math.min((index % 6) * 0.1, 0.5);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Smooth Zoom-Slide entrance positions
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  const staggerDelay = isMobile ? 0 : Math.min((index % 4) * 0.08, 0.3);
+
   const getInitial = () => {
+    if (isMobile) {
+      return { opacity: 0, y: 12 };
+    }
     switch (direction) {
       case "left":
-        return {
-          opacity: 0,
-          scale: 0.95,
-          x: -28,
-          y: 12,
-        };
+        return { opacity: 0, scale: 0.96, x: -20, y: 8 };
       case "right":
-        return {
-          opacity: 0,
-          scale: 0.95,
-          x: 28,
-          y: 12,
-        };
+        return { opacity: 0, scale: 0.96, x: 20, y: 8 };
       case "scale":
-        return {
-          opacity: 0,
-          scale: 0.92,
-          y: 20,
-        };
+        return { opacity: 0, scale: 0.94, y: 14 };
       case "up":
       default:
-        return {
-          opacity: 0,
-          scale: 0.95,
-          y: 28,
-        };
+        return { opacity: 0, scale: 0.96, y: 18 };
     }
   };
 
@@ -65,10 +54,11 @@ export function Scroll3DReveal({
         }}
         viewport={{ once: true, margin: "0px" }}
         transition={{
-          duration: 0.9,
+          duration: isMobile ? 0.4 : 0.7,
           ease: [0.16, 1, 0.3, 1],
           delay: staggerDelay,
         }}
+        style={{ transform: "translateZ(0)" }}
       >
         {children}
       </motion.div>

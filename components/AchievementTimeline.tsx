@@ -170,18 +170,18 @@ export function AchievementTimeline() {
           return (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: isEven ? -40 : 40, y: 20 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className={`relative flex flex-col md:flex-row items-center ${
                 isEven ? "md:flex-row" : "md:flex-row-reverse"
-              } gap-6 md:gap-8`}
+              } gap-4 md:gap-8`}
             >
               {/* Content Card */}
               <div
                 onClick={triggerConfetti}
-                className={`w-full md:w-[calc(50%-40px)] pl-10 sm:pl-12 md:pl-0 cursor-pointer group`}
+                className="w-full md:w-[calc(50%-40px)] pl-9 sm:pl-12 md:pl-0 cursor-pointer group"
               >
                 <LiquidGlassCard
                   enableTilt={true}

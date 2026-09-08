@@ -294,7 +294,7 @@ export default function HomePage() {
 
       {/* ══ HERO WITH BACKGROUND CAMPUS IMAGE ══ */}
       <section
-        className="relative min-h-[90vh] sm:min-h-[94vh] flex flex-col items-center justify-center pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden"
+        className="relative min-h-[85vh] sm:min-h-[92vh] flex flex-col items-center justify-center pt-20 pb-8 sm:pt-28 sm:pb-16 overflow-hidden"
       >
         {/* Layered Campus Photo Background - 95% Visibility */}
         <Image
@@ -309,14 +309,14 @@ export default function HomePage() {
 
         <motion.div
           style={{ y: heroY }}
-          className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center justify-center"
+          className="relative z-10 w-full max-w-5xl mx-auto px-3 sm:px-6 text-center flex flex-col items-center justify-center"
         >
           {/* Admissions badge */}
           <motion.div
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-5 sm:mb-7 inline-block"
+            className="mb-4 sm:mb-7 inline-block"
           >
             <LiquidGlassBadge
               variant="gold"
@@ -335,14 +335,14 @@ export default function HomePage() {
           {/* Giant editorial headline in a luxury liquid glass plaque */}
           <LiquidGlassCard
             enableTilt={true}
-            className="p-6 sm:p-10 md:p-12 inline-block max-w-full rounded-3xl sm:rounded-[2.5rem] border border-white/40 dark:border-white/20 shadow-2xl backdrop-blur-2xl"
+            className="p-5 sm:p-10 md:p-12 inline-block max-w-full rounded-3xl sm:rounded-[2.5rem] border border-white/40 dark:border-white/20 shadow-2xl backdrop-blur-2xl"
           >
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="editorial-heading-lg"
-              style={{ fontSize: "clamp(2.2rem, 7vw, 6rem)" }}
+              style={{ fontSize: "clamp(1.9rem, 6.5vw, 6rem)" }}
             >
               Shaping Futures
               <br />
@@ -362,7 +362,7 @@ export default function HomePage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="luxury-text-readable max-w-lg mx-auto font-editorial italic text-sm sm:text-base md:text-lg leading-relaxed text-neutral-800 dark:text-neutral-200"
+              className="luxury-text-readable max-w-lg mx-auto font-editorial italic text-xs sm:text-base md:text-lg leading-relaxed text-neutral-800 dark:text-neutral-200"
             >
               The Almighty&apos;s Matriculation School — where moral virtue,
               STEM excellence and world-class academics converge.
@@ -374,7 +374,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
-            className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto"
+            className="mt-5 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto"
           >
             <a
               href="https://sasc-f.onrender.com/login"
@@ -401,24 +401,24 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9 }}
-            className="mt-5 sm:mt-7 mx-auto w-fit"
+            className="mt-4 sm:mt-7 mx-auto w-fit max-w-full px-2"
           >
             <LiquidGlassContainer
               shape="pill"
-              className="px-4 py-2 sm:px-6 sm:py-2.5 flex flex-wrap items-center justify-center gap-3 sm:gap-8 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200"
+              className="px-3.5 py-1.5 sm:px-6 sm:py-2.5 flex flex-wrap items-center justify-center gap-2.5 sm:gap-8 text-[0.65rem] sm:text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200"
             >
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#C9A84C]" />
+              <span className="flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#C9A84C]" />
                 State Board Certified
               </span>
               <span className="opacity-30 hidden sm:inline">|</span>
-              <span className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-[#C9A84C]" />
+              <span className="flex items-center gap-1">
+                <Star className="w-3.5 h-3.5 text-[#C9A84C]" />
                 100% Distinction Track
               </span>
               <span className="opacity-30 hidden sm:inline">|</span>
-              <span className="flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-[#C9A84C]" />
+              <span className="flex items-center gap-1">
+                <Users className="w-3.5 h-3.5 text-[#C9A84C]" />
                 3,200+ Scholars
               </span>
             </LiquidGlassContainer>
@@ -431,19 +431,19 @@ export default function HomePage() {
 
       {/* ══ STATS SECTION WITH LIQUID GLASS STATS ══ */}
       <section
-        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <Scroll3DReveal direction="up">
-            <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-16 w-fit">
+            <div className="flex items-center gap-2.5 sm:gap-4 mb-6 sm:mb-16 w-fit">
               <LiquidGlassBadge variant="gold" size="md">
                 By the Numbers
               </LiquidGlassBadge>
-              <div className="gold-line w-16 sm:w-24" />
+              <div className="gold-line w-12 sm:w-24" />
             </div>
           </Scroll3DReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
             <Scroll3DReveal index={0} direction="up">
               <LiquidGlassStat
                 value={100}

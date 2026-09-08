@@ -318,48 +318,58 @@ h6,
   /* ── Klausen Luxury Editorial Utilities ── */
 
   .luxury-section {
-    padding: 6rem 1.5rem;
+    padding: 3rem 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .luxury-section {
+      padding: 5rem 1.5rem;
+    }
   }
 
   @media (min-width: 1024px) {
     .luxury-section {
-      padding: 8rem 2rem;
+      padding: 7rem 2rem;
     }
   }
 
   .editorial-heading {
     font-family: var(--font-editorial) !important;
-    font-size: clamp(2.4rem, 7vw, 6.5rem);
+    font-size: clamp(1.85rem, 5.5vw, 5.2rem);
     font-weight: 900;
-    line-height: 1.06;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--luxury-cream);
     text-shadow: var(--heading-shadow);
+    text-wrap: balance;
   }
 
   .editorial-heading-lg {
     font-family: var(--font-editorial) !important;
-    font-size: clamp(3rem, 9vw, 8.5rem);
+    font-size: clamp(2.1rem, 6.5vw, 6.2rem);
     font-weight: 900;
-    line-height: 1.04;
-    letter-spacing: -0.03em;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
     color: var(--luxury-cream);
     text-shadow: var(--heading-shadow);
+    text-wrap: balance;
   }
 
   .editorial-subheading {
     font-family: var(--font-editorial) !important;
-    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+    font-size: clamp(1.25rem, 3.2vw, 2.4rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: -0.01em;
     color: var(--luxury-cream);
     text-shadow: var(--subheading-shadow);
+    text-wrap: balance;
   }
 
   .luxury-text-readable {
     color: var(--luxury-cream);
     text-shadow: var(--readable-shadow);
+    text-wrap: pretty;
   }
 
   /* 1px gold horizontal divider */
@@ -697,4 +707,26 @@ html:not(.dark) textarea::placeholder {
     rgba(201, 168, 76, 0.14) 55%,
     transparent 80%
   );
+}
+
+/* ── Mobile Performance & Layout Symmetry Optimizations ── */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .liquid-glass-card,
+  .liquid-glass-container {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .animated-line-pattern::before {
+    animation-duration: 22s;
+  }
+
+  .animated-line-pattern::after {
+    animation-duration: 12s;
+  }
 }

@@ -58,10 +58,12 @@ export function Navbar() {
         initial={{ opacity: 0, y: -25 }}
         animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: -25 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pt-3 sm:pt-5 pb-1 pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-[100] flex justify-center px-2.5 sm:px-6 pt-2 sm:pt-4 pb-1 pointer-events-none transition-all duration-300"
       >
         <nav
-          className="pointer-events-auto w-full max-w-7xl transition-all duration-500 rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between liquid-glass-dock shadow-2xl"
+          className={`pointer-events-auto w-full max-w-7xl transition-all duration-300 rounded-full px-3 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between liquid-glass-dock shadow-2xl ${
+            isScrolled ? "bg-white/95 dark:bg-[#0e0e14]/95 backdrop-blur-xl shadow-black/20" : ""
+          }`}
         >
           {/* Brand */}
           <Link href="/" className="group flex items-center gap-2 sm:gap-2.5 select-none flex-shrink-0">
@@ -150,7 +152,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 lg:hidden bg-black/60 backdrop-blur-[5px]"
+              className="fixed inset-0 z-[105] lg:hidden bg-black/60 backdrop-blur-[5px]"
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
@@ -159,7 +161,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -14, scale: 0.97 }}
               transition={{ type: "spring", stiffness: 320, damping: 28 }}
-              className="fixed inset-x-3 sm:inset-x-4 top-[4.2rem] sm:top-[4.8rem] max-w-lg mx-auto z-50 rounded-3xl lg:hidden overflow-hidden liquid-glass-card shadow-2xl"
+              className="fixed inset-x-2.5 sm:inset-x-4 top-[3.8rem] sm:top-[4.5rem] max-w-lg mx-auto z-[110] rounded-3xl lg:hidden max-h-[calc(100dvh-4.8rem)] overflow-y-auto liquid-glass-card shadow-2xl border border-amber-600/30 dark:border-amber-400/30"
             >
               {/* Drawer Header */}
               <div

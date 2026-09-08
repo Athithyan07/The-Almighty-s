@@ -118,11 +118,11 @@ export default function TeachersPage() {
   return (
     <div className="w-full overflow-x-hidden">
 
-      {/* ══ HERO WITH BACKGROUND IMAGE ══ */}
-      <section className="relative pt-24 pb-14 sm:pt-28 sm:pb-24 px-4 sm:px-8 lg:px-12 text-center overflow-hidden">
+      {/* ══ HERO WITH FACULTY BACKGROUND ══ */}
+      <section className="relative pt-20 pb-10 sm:pt-28 sm:pb-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden">
         <Image
-          src="/1.jpg"
-          alt="Distinguished Faculty at The Almighty's"
+          src="/5.jpg"
+          alt="Faculty and Educators at The Almighty's"
           fill
           priority
           className="object-cover -z-10"
@@ -133,36 +133,36 @@ export default function TeachersPage() {
         <Scroll3DReveal direction="up" className="max-w-4xl mx-auto">
           <LiquidGlassCard
             enableTilt={false}
-            className="p-6 sm:p-12 rounded-3xl sm:rounded-[2.5rem] border border-white/40 dark:border-white/20 shadow-2xl backdrop-blur-[5px] inline-block max-w-full"
+            className="p-5 sm:p-12 rounded-3xl sm:rounded-[2.5rem] border border-white/40 dark:border-white/20 shadow-2xl backdrop-blur-[5px] inline-block max-w-full"
           >
             <LiquidGlassBadge variant="gold" size="sm" className="mb-3 sm:mb-4">
               Distinguished Faculty
             </LiquidGlassBadge>
 
-            <h1 className="editorial-heading-lg" style={{ fontSize: "clamp(2.2rem, 7.5vw, 6.5rem)" }}>
+            <h1 className="editorial-heading-lg" style={{ fontSize: "clamp(2rem, 6.5vw, 6.5rem)" }}>
               Compassionate Mentors
               <br />
               <em className="text-[#C9A84C] italic">Inspiring Teachers</em>
             </h1>
 
-            <div className="gold-line max-w-xs mx-auto my-4 sm:my-6" />
+            <div className="gold-line max-w-xs mx-auto my-3 sm:my-6" />
 
             <p
-              className="luxury-text-readable font-editorial italic text-neutral-900 dark:text-neutral-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+              className="luxury-text-readable font-editorial italic text-neutral-900 dark:text-neutral-200 text-xs sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
             >
               Meet our devoted educators who guide every student toward academic distinction,
               moral leadership, and personal excellence at The Almighty&apos;s Matriculation School.
             </p>
 
             {/* Department Filter Chips */}
-            <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+            <div className="mt-5 sm:mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
               {departments.map((dept) => {
                 const isSelected = selectedDept === dept;
                 return (
                   <button
                     key={dept}
                     onClick={() => setSelectedDept(dept)}
-                    className={`px-4 py-1.5 sm:py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 backdrop-blur-[5px] cursor-pointer ${
+                    className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 backdrop-blur-[5px] cursor-pointer ${
                       isSelected
                         ? "bg-amber-500/25 dark:bg-amber-400/25 border border-amber-500/60 dark:border-amber-400/60 text-neutral-900 dark:text-amber-100 shadow-[0_0_15px_rgba(201,168,76,0.3)] font-black"
                         : "bg-white/40 dark:bg-black/30 border border-neutral-300/60 dark:border-white/15 text-neutral-800 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-white/15"
@@ -179,9 +179,9 @@ export default function TeachersPage() {
 
       {/* ══ TEACHERS GRID ══ */}
       <section
-        className="relative py-14 sm:py-20 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8 relative z-10">
           {filteredTeachers.map((teacher, idx) => (
             <Scroll3DReveal key={teacher.id} index={idx} direction="up">
               <TeacherCard teacher={teacher} />
@@ -192,7 +192,7 @@ export default function TeachersPage() {
 
       {/* ══ SASC PORTAL BANNER (PRE-FOOTER SEGMENT WITH BG IMAGE) ══ */}
       <section
-        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-amber-600/15 dark:border-amber-400/15"
       >
         {/* Layered Campus Photo Background - 95% Visibility */}
         <Image

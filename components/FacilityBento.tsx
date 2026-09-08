@@ -26,7 +26,7 @@ export function FacilityBento({ facility }: { facility: FacilityData }) {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`liquid-glass-card liquid-glass-rim group relative rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 min-h-[300px] sm:min-h-[340px] flex flex-col justify-end p-5 sm:p-8 cursor-pointer ${
+      className={`liquid-glass-card liquid-glass-rim group relative rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 min-h-[260px] sm:min-h-[340px] flex flex-col justify-end p-4 sm:p-8 cursor-pointer ${
         facility.className || "col-span-1"
       } ${
         isHovered
