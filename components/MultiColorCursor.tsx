@@ -10,7 +10,7 @@ interface Sparkle {
   color: string;
 }
 
-const RAINBOW_COLORS = ["#FF6B6B", "#FFD60A", "#51CF66", "#4ECDC4", "#845EF7", "#F06292"];
+const RAINBOW_COLORS = ["#FF6B6B", "#FFD60A", "#51CF66", "#FFD60A", "#845EF7", "#F06292"];
 
 export function MultiColorCursor() {
   const [isVisible, setIsVisible] = useState(false);
@@ -117,7 +117,7 @@ export function MultiColorCursor() {
         className="w-10 h-10 rounded-full border-2 border-transparent"
         style-custom={{
           background:
-            "linear-gradient(#00000000, #00000000) padding-box, linear-gradient(135deg, #FF6B6B, #FFD60A, #51CF66, #4ECDC4, #845EF7, #F06292) border-box",
+            "linear-gradient(#00000000, #00000000) padding-box, linear-gradient(135deg, #FF6B6B, #FFD60A, #51CF66, #FFD60A, #845EF7, #F06292) border-box",
         }}
       >
         <div
@@ -126,10 +126,10 @@ export function MultiColorCursor() {
             border: "2px solid transparent",
             borderRadius: "9999px",
             background:
-              "linear-gradient(#00000000, #00000000) padding-box, linear-gradient(135deg, #FF6B6B, #FFD60A, #51CF66, #4ECDC4, #845EF7, #F06292) border-box",
+              "linear-gradient(#00000000, #00000000) padding-box, linear-gradient(135deg, #FF6B6B, #FFD60A, #51CF66, #FFD60A, #845EF7, #F06292) border-box",
             boxShadow: isHovered
-              ? "0 0 22px rgba(132, 94, 247, 0.6), 0 0 10px rgba(78, 205, 196, 0.5)"
-              : "0 0 14px rgba(132, 94, 247, 0.35)",
+              ? "0 0 22px rgba(201, 168, 76, 0.6), 0 0 10px rgba(255, 214, 10, 0.5)"
+              : "0 0 14px rgba(201, 168, 76, 0.35)",
           }}
         />
       </motion.div>
@@ -148,14 +148,14 @@ export function MultiColorCursor() {
         className="w-3.5 h-3.5 rounded-full shadow-lg"
         style-custom={{
           background:
-            "linear-gradient(135deg, #FF6B6B 0%, #FFD60A 35%, #4ECDC4 70%, #845EF7 100%)",
+            "linear-gradient(135deg, #FF6B6B 0%, #FFD60A 35%, #FFD60A 70%, #845EF7 100%)",
         }}
       >
         <div
           className="w-full h-full rounded-full animate-spin-slow"
           style={{
             background:
-              "linear-gradient(135deg, #FF6B6B 0%, #FFD60A 35%, #4ECDC4 70%, #845EF7 100%)",
+              "linear-gradient(135deg, #FF6B6B 0%, #FFD60A 35%, #FFD60A 70%, #845EF7 100%)",
             boxShadow: "0 0 8px rgba(255, 255, 255, 0.8)",
           }}
         />

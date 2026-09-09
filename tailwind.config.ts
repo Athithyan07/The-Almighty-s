@@ -19,7 +19,7 @@ const config: Config = {
           borderDark: "rgba(255, 255, 255, 0.12)",
         },
         sasc: {
-          cyan:    "#06b6d4",
+          cyan:    "#FFD60A",
           purple:  "#a855f7",
           pink:    "#ec4899",
           indigo:  "#6366f1",
@@ -30,7 +30,7 @@ const config: Config = {
         play: {
           sunshine: "#FFD60A",
           coral:    "#FF6B6B",
-          sky:      "#4ECDC4",
+          sky:      "#FFD60A",
           mint:     "#51CF66",
           lavender: "#845EF7",
           pink:     "#F06292",
@@ -94,7 +94,7 @@ const config: Config = {
       boxShadow: {
         "liquid-light": "0 20px 50px rgba(120,119,198,0.15), 0 10px 20px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.8)",
         "liquid-dark":  "0 20px 50px rgba(0,0,0,0.6), 0 0 35px rgba(120,119,198,0.15), inset 0 1px 1px rgba(255,255,255,0.15)",
-        "glow-cyan":    "0 0 25px rgba(6,182,212,0.5)",
+        "glow-cyan":    "0 0 25px rgba(255,214,10,0.5)",
         "glow-purple":  "0 0 25px rgba(168,85,247,0.5)",
         "glow-pink":    "0 0 25px rgba(236,72,153,0.5)",
         "glow-coral":   "0 0 30px rgba(255,107,107,0.45)",

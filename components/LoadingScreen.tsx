@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Sparkles, ShieldCheck, Award } from "lucide-react";
 import { useLoading } from "./LoadingContext";
 
 export function LoadingScreen() {
   const { isLoaded, isFirstVisit, enterSite } = useLoading();
+  const router = useRouter();
   const [progress, setProgress] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
@@ -38,6 +40,7 @@ export function LoadingScreen() {
     setIsExiting(true);
     setTimeout(() => {
       enterSite();
+      router.push("/");
     }, 600);
   };
 

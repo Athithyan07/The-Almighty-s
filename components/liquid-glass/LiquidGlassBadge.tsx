@@ -19,7 +19,7 @@ export const LiquidGlassBadge: React.FC<LiquidGlassBadgeProps> = ({
 }) => {
   const variantStyles = {
     gold: "text-[#C9A84C] border-amber-500/40 dark:border-amber-400/40 bg-amber-500/10 dark:bg-amber-400/15 shadow-[0_2px_12px_rgba(201,168,76,0.18)]",
-    sky: "text-teal-700 dark:text-teal-300 border-teal-500/40 dark:border-teal-400/40 bg-teal-500/15 dark:bg-teal-400/15",
+    sky: "text-amber-800 dark:text-amber-300 border-amber-500/40 dark:border-amber-400/40 bg-amber-500/15 dark:bg-amber-400/15",
     coral: "text-rose-700 dark:text-rose-300 border-rose-500/40 dark:border-rose-400/40 bg-rose-500/15 dark:bg-rose-400/15",
     mint: "text-emerald-700 dark:text-emerald-300 border-emerald-500/40 dark:border-emerald-400/40 bg-emerald-500/15 dark:bg-emerald-400/15",
     lavender: "text-indigo-700 dark:text-indigo-300 border-indigo-500/40 dark:border-indigo-400/40 bg-indigo-500/15 dark:bg-indigo-400/15",

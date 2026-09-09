@@ -137,7 +137,7 @@ const iconMap = {
 
 const glowColorClasses = {
   amber: "from-amber-400 to-yellow-500 shadow-amber-500/40 text-amber-300",
-  cyan: "from-cyan-400 to-blue-500 shadow-cyan-500/40 text-cyan-300",
+  cyan: "from-amber-400 to-yellow-500 shadow-amber-500/40 text-amber-300",
   purple: "from-purple-400 to-indigo-500 shadow-purple-500/40 text-purple-300",
   pink: "from-pink-400 to-rose-500 shadow-pink-500/40 text-pink-300",
   emerald: "from-emerald-400 to-teal-500 shadow-emerald-500/40 text-emerald-300",
@@ -153,7 +153,7 @@ export function AchievementTimeline() {
       origin: { x, y },
       particleCount: 40,
       spread: 60,
-      colors: ["#06b6d4", "#a855f7", "#ec4899", "#fbbf24"],
+      colors: ["#C9A84C", "#E2C376", "#FFD60A", "#fbbf24"],
     });
   };
 

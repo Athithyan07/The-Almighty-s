@@ -26,7 +26,7 @@
   /* Playful Rainbow Palette */
   --play-sunshine: #FFD60A;
   --play-coral: #FF6B6B;
-  --play-sky: #4ECDC4;
+  --play-sky: #FFD60A;
   --play-mint: #51CF66;
   --play-lavender: #845EF7;
   --play-pink: #F06292;
@@ -629,21 +629,21 @@ html:not(.dark) textarea::placeholder {
   background-image: 
     repeating-linear-gradient(
       45deg,
-      rgba(201, 168, 76, 0.22) 0px,
-      rgba(201, 168, 76, 0.22) 1.5px,
+      rgba(255, 214, 10, 0.28) 0px,
+      rgba(255, 214, 10, 0.28) 1.5px,
       transparent 1.5px,
       transparent 40px
     ),
     repeating-linear-gradient(
       -45deg,
-      rgba(201, 168, 76, 0.16) 0px,
-      rgba(201, 168, 76, 0.16) 1.5px,
+      rgba(201, 168, 76, 0.22) 0px,
+      rgba(201, 168, 76, 0.22) 1.5px,
       transparent 1.5px,
       transparent 40px
     ),
     radial-gradient(
-      circle 2px at center,
-      rgba(201, 168, 76, 0.35) 0%,
+      circle 2.5px at center,
+      rgba(255, 214, 10, 0.45) 0%,
       transparent 100%
     );
   background-size: 80px 80px, 80px 80px, 40px 40px;
@@ -664,9 +664,9 @@ html:not(.dark) textarea::placeholder {
   background: linear-gradient(
     115deg,
     transparent 20%,
-    rgba(201, 168, 76, 0.10) 45%,
-    rgba(255, 225, 120, 0.22) 50%,
-    rgba(201, 168, 76, 0.10) 55%,
+    rgba(201, 168, 76, 0.15) 45%,
+    rgba(255, 214, 10, 0.35) 50%,
+    rgba(201, 168, 76, 0.15) 55%,
     transparent 80%
   );
   animation: light-sweep-pulse 8s ease-in-out infinite;
@@ -677,21 +677,21 @@ html:not(.dark) textarea::placeholder {
   background-image: 
     repeating-linear-gradient(
       45deg,
-      rgba(201, 168, 76, 0.30) 0px,
-      rgba(201, 168, 76, 0.30) 1.5px,
+      rgba(255, 214, 10, 0.38) 0px,
+      rgba(255, 214, 10, 0.38) 1.5px,
       transparent 1.5px,
       transparent 40px
     ),
     repeating-linear-gradient(
       -45deg,
-      rgba(201, 168, 76, 0.24) 0px,
-      rgba(201, 168, 76, 0.24) 1.5px,
+      rgba(201, 168, 76, 0.30) 0px,
+      rgba(201, 168, 76, 0.30) 1.5px,
       transparent 1.5px,
       transparent 40px
     ),
     radial-gradient(
       circle 2.5px at center,
-      rgba(201, 168, 76, 0.48) 0%,
+      rgba(255, 214, 10, 0.55) 0%,
       transparent 100%
     );
   background-size: 80px 80px, 80px 80px, 40px 40px;
@@ -702,9 +702,9 @@ html:not(.dark) textarea::placeholder {
   background: linear-gradient(
     115deg,
     transparent 20%,
-    rgba(201, 168, 76, 0.14) 45%,
-    rgba(255, 230, 140, 0.28) 50%,
-    rgba(201, 168, 76, 0.14) 55%,
+    rgba(201, 168, 76, 0.18) 45%,
+    rgba(255, 214, 10, 0.40) 50%,
+    rgba(201, 168, 76, 0.18) 55%,
     transparent 80%
   );
 }

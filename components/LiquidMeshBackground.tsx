@@ -70,11 +70,11 @@ export function LiquidMeshBackground() {
         />
       </div>
 
-      {/* Floating Orb 1: Cyan */}
+      {/* Floating Orb 1: Primary Yellow Gold */}
       <div
         className="absolute rounded-full filter blur-[110px] animate-blob-slow opacity-30"
         style={{ top: "10%", left: "12%", width: "48vw", height: "48vw", maxWidth: "650px", maxHeight: "650px",
-          backgroundColor: isDark ? "rgba(6,182,212,0.5)" : "rgba(78,205,196,0.35)" }}
+          backgroundColor: isDark ? "rgba(201, 168, 76, 0.45)" : "rgba(255, 214, 10, 0.35)" }}
       />
 
       {/* Floating Orb 2: Purple */}
