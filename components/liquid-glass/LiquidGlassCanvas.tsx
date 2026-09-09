@@ -250,15 +250,15 @@ export const LiquidGlassCanvas: React.FC<LiquidGlassCanvasProps> = ({
       gl.uniform1f(tintOpLoc, tintOpacity);
 
       if (theme === "dark") {
-        // Dark Obsidian + Amber-Gold Sheen
+        // Dark Obsidian + Sky Blue Sheen
         gl.uniform3f(tintTopLoc, 0.12, 0.12, 0.18);
         gl.uniform3f(tintBottomLoc, 0.06, 0.06, 0.09);
-        gl.uniform3f(rimColorLoc, 0.79, 0.66, 0.3); // #C9A84C gold rim
+        gl.uniform3f(rimColorLoc, 0.0, 0.64, 0.878); // #00A3E0 sky blue rim
       } else {
-        // Light Crystal + Champagne Sheen
+        // Light Crystal + Sky Blue Sheen
         gl.uniform3f(tintTopLoc, 1.0, 1.0, 1.0);
-        gl.uniform3f(tintBottomLoc, 0.95, 0.94, 0.92);
-        gl.uniform3f(rimColorLoc, 0.64, 0.49, 0.16); // #A37D28 gold rim
+        gl.uniform3f(tintBottomLoc, 0.95, 0.96, 0.98);
+        gl.uniform3f(rimColorLoc, 0.0, 0.51, 0.70); // #0082B3 deeper sky rim
       }
 
       gl.drawArrays(gl.TRIANGLES, 0, 6);

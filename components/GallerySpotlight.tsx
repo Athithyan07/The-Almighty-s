@@ -109,7 +109,7 @@ export function GallerySpotlight() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full text-[11px] sm:text-sm font-semibold transition-all duration-300 ${
                 isSelected
-                  ? "bg-gradient-to-r from-[#C9A84C] to-[#E2C376] text-black shadow-lg shadow-[#C9A84C]/30 scale-105"
+                  ? "bg-gradient-to-r from-[#00A3E0] to-[#33B8E8] text-black shadow-lg shadow-[#00A3E0]/30 scale-105"
                   : "bg-white/60 dark:bg-white/5 border border-neutral-300/80 dark:border-white/10 text-neutral-800 dark:text-slate-300 hover:bg-white/90 dark:hover:bg-white/15 shadow-sm"
               }`}
             >
@@ -144,7 +144,7 @@ export function GallerySpotlight() {
               onClick={() => setActiveModalItem(item)}
               className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 dark:border-white/15 cursor-pointer transition-all duration-500 shadow-lg ${rowSpanClass} ${
                 isThisHovered
-                  ? "scale-[1.02] sm:scale-[1.03] z-20 shadow-2xl shadow-[#C9A84C]/30 border-[#C9A84C]"
+                  ? "scale-[1.02] sm:scale-[1.03] z-20 shadow-2xl shadow-[#00A3E0]/30 border-[#00A3E0]"
                   : isDimmed
                   ? "opacity-40 scale-[0.98] filter blur-[0.5px]"
                   : "opacity-100 scale-100"
@@ -164,8 +164,8 @@ export function GallerySpotlight() {
 
               {/* Top Glass Category Tag */}
               <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                <span className="px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-white/30 dark:bg-black/40 backdrop-blur-[5px] text-white dark:text-amber-200 border border-white/40 dark:border-white/20 shadow-sm flex items-center gap-1 sm:gap-1.5">
-                  <Tag className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#C9A84C]" />
+                <span className="px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-white/30 dark:bg-black/40 backdrop-blur-[5px] text-white dark:text-sky-200 border border-white/40 dark:border-white/20 shadow-sm flex items-center gap-1 sm:gap-1.5">
+                  <Tag className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#00A3E0]" />
                   {item.category}
                 </span>
               </div>
@@ -177,12 +177,12 @@ export function GallerySpotlight() {
 
               {/* Bottom Liquid Glass Card Details */}
               <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 bg-gradient-to-t from-black/85 via-black/50 to-transparent backdrop-blur-[5px] transition-transform duration-300">
-                <h4 className="text-base sm:text-lg font-bold font-heading text-white group-hover:text-amber-300 transition-colors">
+                <h4 className="text-base sm:text-lg font-bold font-heading text-white group-hover:text-[#00A3E0] transition-colors">
                   {item.title}
                 </h4>
                 <div className="flex items-center gap-2 sm:gap-3 mt-1 text-[11px] sm:text-xs text-neutral-300">
                   <span className="flex items-center gap-1">
-                    <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C9A84C]" />
+                    <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#00A3E0]" />
                     {item.location}
                   </span>
                   <span>•</span>
@@ -222,9 +222,9 @@ export function GallerySpotlight() {
               />
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 border-b border-amber-600/25 dark:border-white/15 pb-3 sm:pb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 border-b border-sky-500/25 dark:border-white/15 pb-3 sm:pb-4">
               <div>
-                <span className="text-[10px] sm:text-xs font-bold text-[#C9A84C] uppercase tracking-wider">
+                <span className="text-[10px] sm:text-xs font-bold text-[#00A3E0] uppercase tracking-wider">
                   {activeModalItem.category}
                 </span>
                 <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5">
@@ -233,7 +233,7 @@ export function GallerySpotlight() {
               </div>
 
               <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-stone-300 dark:text-neutral-300">
-                <Camera className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C9A84C]" />
+                <Camera className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00A3E0]" />
                 <span>Captured by {activeModalItem.photographer}</span>
               </div>
             </div>

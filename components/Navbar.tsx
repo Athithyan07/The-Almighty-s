@@ -80,7 +80,7 @@ export function Navbar() {
               <span className="font-serif font-bold text-neutral-900 dark:text-white italic block leading-tight text-[clamp(0.82rem,3.5vw,0.95rem)]">
                 The Almighty&apos;s
               </span>
-              <p className="text-[clamp(0.48rem,1.8vw,0.55rem)] font-bold tracking-[0.18em] uppercase text-[#C9A84C] mt-0.5 leading-none">
+              <p className="text-[clamp(0.48rem,1.8vw,0.55rem)] font-bold tracking-[0.18em] uppercase text-[#00A3E0] mt-0.5 leading-none">
                 Matriculation School
               </p>
             </div>
@@ -96,8 +96,8 @@ export function Navbar() {
                   href={link.href}
                   className={`relative px-3.5 py-1.5 rounded-full text-[0.65rem] font-bold tracking-[0.16em] uppercase transition-all duration-200 ${
                     isActive
-                      ? "bg-white/80 dark:bg-white/15 text-[#C9A84C] border border-white/90 dark:border-white/30 shadow-[0_0_0_1px_rgba(255,255,255,0.8),0_2px_8px_rgba(0,0,0,0.06)] backdrop-blur-md font-extrabold"
-                      : "text-neutral-800 dark:text-stone-200 hover:text-[#C9A84C] hover:bg-black/5 dark:hover:bg-white/10 border border-transparent"
+                      ? "bg-white/80 dark:bg-white/15 text-[#00A3E0] border border-white/90 dark:border-white/30 shadow-[0_0_0_1px_rgba(255,255,255,0.8),0_2px_8px_rgba(0,0,0,0.06)] backdrop-blur-md font-extrabold"
+                      : "text-neutral-800 dark:text-stone-200 hover:text-[#00A3E0] hover:bg-black/5 dark:hover:bg-white/10 border border-transparent"
                   }`}
                 >
                   {link.name}
@@ -112,7 +112,7 @@ export function Navbar() {
             <button
               onClick={toggleTheme}
               aria-label="Toggle Theme"
-              className="p-1.5 sm:p-2 rounded-full transition-colors bg-white/70 dark:bg-white/10 border border-white/90 dark:border-white/25 text-[#C9A84C] shadow-[0_0_0_1px_rgba(255,255,255,0.7),0_2px_8px_rgba(0,0,0,0.06)] backdrop-blur-md active:scale-95"
+              className="p-1.5 sm:p-2 rounded-full transition-colors bg-white/70 dark:bg-white/10 border border-white/90 dark:border-white/25 text-[#00A3E0] shadow-[0_0_0_1px_rgba(255,255,255,0.7),0_2px_8px_rgba(0,0,0,0.06)] backdrop-blur-md active:scale-95"
             >
               {theme === "dark" ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
             </button>
@@ -164,7 +164,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-x-2.5 sm:inset-x-4 top-[3.6rem] sm:top-[4.4rem] max-w-lg mx-auto z-[210] rounded-3xl lg:hidden max-h-[calc(100dvh-4.5rem)] overflow-y-auto shadow-2xl border border-amber-600/30 dark:border-amber-400/30"
+              className="fixed inset-x-2.5 sm:inset-x-4 top-[3.6rem] sm:top-[4.4rem] max-w-lg mx-auto z-[210] rounded-3xl lg:hidden max-h-[calc(100dvh-4.5rem)] overflow-y-auto shadow-2xl border border-sky-500/30 dark:border-sky-300/30"
               style={{
                 background: "rgba(12, 12, 18, 0.97)",
                 backdropFilter: "blur(20px)",
@@ -173,12 +173,12 @@ export function Navbar() {
             >
               {/* Drawer Header */}
               <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10">
-                <div className="relative w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 bg-amber-500/10 border border-amber-500/30">
+                <div className="relative w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 bg-sky-400/10 border border-sky-400/30">
                   <Image src="/logo.png" alt="Logo" fill className="object-contain p-0.5" />
                 </div>
                 <div className="flex-1">
                   <div className="font-serif font-bold text-sm text-white italic">The Almighty&apos;s</div>
-                  <div className="text-[0.52rem] font-bold tracking-[0.2em] uppercase text-[#C9A84C]">Matriculation School</div>
+                  <div className="text-[0.52rem] font-bold tracking-[0.2em] uppercase text-[#00A3E0]">Matriculation School</div>
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -201,11 +201,11 @@ export function Navbar() {
                       onClick={() => setMobileMenuOpen(false)}
                       className={`flex items-center gap-3 px-3.5 py-3 rounded-2xl transition-colors ${
                         isActive
-                          ? "bg-amber-500/15 border-l-4 border-[#C9A84C] text-[#C9A84C] font-bold"
+                          ? "bg-sky-400/15 border-l-4 border-[#00A3E0] text-[#00A3E0] font-bold"
                           : "text-stone-200 hover:bg-white/5 font-semibold"
                       }`}
                     >
-                      <Icon className={`w-4 h-4 ${isActive ? "text-[#C9A84C]" : "opacity-60"}`} />
+                      <Icon className={`w-4 h-4 ${isActive ? "text-[#00A3E0]" : "opacity-60"}`} />
                       <span className="text-xs font-bold tracking-[0.12em] uppercase">{link.name}</span>
                     </Link>
                   );
@@ -220,7 +220,7 @@ export function Navbar() {
                   </span>
                   <button
                     onClick={toggleTheme}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.62rem] font-bold border border-amber-500/30 text-[#C9A84C] bg-amber-500/10 active:scale-95"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.62rem] font-bold border border-sky-400/30 text-[#00A3E0] bg-sky-400/10 active:scale-95"
                   >
                     {theme === "dark" ? <><Sun className="w-3.5 h-3.5" /> Light</> : <><Moon className="w-3.5 h-3.5" /> Dark</>}
                   </button>
@@ -230,7 +230,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-2xl text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-[#C9A84C]"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-2xl text-xs font-bold border border-sky-400/40 bg-sky-400/10 text-[#00A3E0]"
                 >
                   <span>Login to SASC Portal</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />

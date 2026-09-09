@@ -30,8 +30,8 @@ export function FacilityBento({ facility }: { facility: FacilityData }) {
         facility.className || "col-span-1"
       } ${
         isHovered
-          ? "border-amber-500/60 shadow-2xl -translate-y-1.5"
-          : "border-amber-600/20 dark:border-amber-400/25"
+          ? "border-sky-400/60 shadow-2xl -translate-y-1.5"
+          : "border-sky-500/20 dark:border-sky-300/25"
       }`}
     >
       {/* Background Image: Crisp vs Diffused */}
@@ -76,16 +76,16 @@ export function FacilityBento({ facility }: { facility: FacilityData }) {
       <div className="relative z-10 transition-all duration-500">
         <div className="flex items-start justify-between gap-3 sm:gap-4">
           <div>
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider block text-[#C9A84C]">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider block text-[#00A3E0]">
               {facility.subtitle}
             </span>
-            <h3 className="text-xl sm:text-3xl font-bold mt-1 transition-colors font-editorial text-neutral-100 dark:text-amber-100 group-hover:text-amber-300">
+            <h3 className="text-xl sm:text-3xl font-bold mt-1 transition-colors font-editorial text-neutral-100 dark:text-sky-100 group-hover:text-[#00A3E0]">
               {facility.title}
             </h3>
           </div>
 
           <div
-            className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl backdrop-blur-[5px] border transition-all duration-300 shrink-0 mt-1 bg-amber-500/10 dark:bg-amber-400/15 border-amber-500/30 dark:border-amber-400/40 text-amber-300 group-hover:bg-amber-400 group-hover:text-neutral-950"
+            className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl backdrop-blur-[5px] border transition-all duration-300 shrink-0 mt-1 bg-sky-400/10 dark:bg-sky-300/15 border-sky-400/30 dark:border-sky-300/40 text-[#00A3E0] group-hover:bg-sky-300 group-hover:text-neutral-950"
           >
             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform" />
           </div>
@@ -101,13 +101,13 @@ export function FacilityBento({ facility }: { facility: FacilityData }) {
             isHovered ? "max-h-24 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
           }`}
         >
-          <div className="flex flex-wrap gap-2 pt-2 border-t border-amber-500/20 dark:border-amber-400/25">
+          <div className="flex flex-wrap gap-2 pt-2 border-t border-sky-400/20 dark:border-sky-300/25">
             {facility.features.map((feat) => (
               <span
                 key={feat}
-                className="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-1 rounded-lg backdrop-blur-[5px] font-medium bg-neutral-900/80 dark:bg-[#09090d]/80 border border-amber-500/30 dark:border-amber-400/40 text-neutral-200"
+                className="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-1 rounded-lg backdrop-blur-[5px] font-medium bg-neutral-900/80 dark:bg-[#09090d]/80 border border-sky-400/30 dark:border-sky-300/40 text-neutral-200"
               >
-                <CheckCircle2 className="w-3 h-3 text-amber-400" />
+                <CheckCircle2 className="w-3 h-3 text-[#00A3E0]" />
                 {feat}
               </span>
             ))}

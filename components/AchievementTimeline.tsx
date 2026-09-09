@@ -136,8 +136,8 @@ const iconMap = {
 };
 
 const glowColorClasses = {
-  amber: "from-amber-400 to-yellow-500 shadow-amber-500/40 text-amber-300",
-  cyan: "from-amber-400 to-yellow-500 shadow-amber-500/40 text-amber-300",
+  amber: "from-sky-400 to-[#00A3E0] shadow-sky-500/40 text-sky-300",
+  cyan: "from-sky-400 to-[#00A3E0] shadow-sky-500/40 text-sky-300",
   purple: "from-purple-400 to-indigo-500 shadow-purple-500/40 text-purple-300",
   pink: "from-pink-400 to-rose-500 shadow-pink-500/40 text-pink-300",
   emerald: "from-emerald-400 to-teal-500 shadow-emerald-500/40 text-emerald-300",
@@ -153,14 +153,14 @@ export function AchievementTimeline() {
       origin: { x, y },
       particleCount: 40,
       spread: 60,
-      colors: ["#C9A84C", "#E2C376", "#FFD60A", "#fbbf24"],
+      colors: ["#00A3E0", "#33B8E8", "#00C2FF", "#fbbf24"],
     });
   };
 
   return (
     <div className="relative py-8 sm:py-12 max-w-5xl mx-auto px-2 sm:px-4">
       {/* Central Liquid Glowing Spine */}
-      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] sm:w-[3px] bg-gradient-to-b from-[#C9A84C] via-[#E2C376] to-[#A37D28] shadow-[0_0_15px_rgba(201,168,76,0.5)] rounded-full" />
+      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] sm:w-[3px] bg-gradient-to-b from-[#00A3E0] via-[#33B8E8] to-[#A37D28] shadow-[0_0_15px_rgba(0, 163, 224,0.5)] rounded-full" />
 
       <div className="space-y-8 sm:space-y-16">
         {MILESTONES_DATA.map((item, index) => {
@@ -185,10 +185,10 @@ export function AchievementTimeline() {
               >
                 <LiquidGlassCard
                   enableTilt={true}
-                  className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl border border-amber-600/20 dark:border-amber-400/25"
+                  className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl border border-sky-500/20 dark:border-sky-300/25"
                 >
                   {/* Header Row */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-amber-600/15 dark:border-amber-400/15">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-sky-500/15 dark:border-sky-300/15">
                     <div className="flex items-center gap-2">
                       <LiquidGlassBadge variant="gold" size="sm">
                         {item.category}
@@ -206,7 +206,7 @@ export function AchievementTimeline() {
 
                   {/* Title */}
                   <h3
-                    className="text-base sm:text-xl font-bold mt-3 group-hover:text-[#C9A84C] transition-colors font-editorial text-neutral-900 dark:text-amber-100"
+                    className="text-base sm:text-xl font-bold mt-3 group-hover:text-[#00A3E0] transition-colors font-editorial text-neutral-900 dark:text-sky-100"
                   >
                     {item.title}
                   </h3>
@@ -218,21 +218,21 @@ export function AchievementTimeline() {
 
                   {/* Impact Metric Callout */}
                   <div
-                    className="mt-3 sm:mt-4 p-3 rounded-xl sm:rounded-2xl flex items-center justify-between text-xs bg-amber-500/10 dark:bg-amber-400/10 border border-amber-600/20 dark:border-amber-400/25"
+                    className="mt-3 sm:mt-4 p-3 rounded-xl sm:rounded-2xl flex items-center justify-between text-xs bg-sky-400/10 dark:bg-sky-300/10 border border-sky-500/20 dark:border-sky-300/25"
                   >
                     <div>
-                      <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-bold block text-[#C9A84C]">
+                      <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-bold block text-[#00A3E0]">
                         Verified Outcome
                       </span>
-                      <span className="font-semibold text-[11px] sm:text-xs text-neutral-900 dark:text-amber-100">
+                      <span className="font-semibold text-[11px] sm:text-xs text-neutral-900 dark:text-sky-100">
                         {item.impactMetric}
                       </span>
                     </div>
-                    <Sparkles className="w-4 h-4 shrink-0 text-[#C9A84C]" />
+                    <Sparkles className="w-4 h-4 shrink-0 text-[#00A3E0]" />
                   </div>
 
                   {/* Tags & Institution */}
-                  <div className="mt-3 sm:mt-4 pt-3 flex flex-wrap items-center justify-between gap-2 text-xs border-t border-amber-600/15 dark:border-amber-400/15">
+                  <div className="mt-3 sm:mt-4 pt-3 flex flex-wrap items-center justify-between gap-2 text-xs border-t border-sky-500/15 dark:border-sky-300/15">
                     <span className="font-semibold italic text-[11px] sm:text-xs text-neutral-700 dark:text-neutral-400">
                       {item.institution}
                     </span>
@@ -240,7 +240,7 @@ export function AchievementTimeline() {
                       {item.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 rounded-md text-[10px] font-semibold border border-amber-600/30 dark:border-amber-400/20 text-neutral-800 dark:text-neutral-200 bg-amber-500/10 dark:bg-amber-400/10"
+                          className="px-2 py-0.5 rounded-md text-[10px] font-semibold border border-sky-500/30 dark:border-sky-300/20 text-neutral-800 dark:text-neutral-200 bg-sky-400/10 dark:bg-sky-300/10"
                         >
                           #{tag}
                         </span>
@@ -255,12 +255,12 @@ export function AchievementTimeline() {
                 <div
                   className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl p-0.5 shadow-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                   style={{
-                    background: "linear-gradient(135deg, #C9A84C, #E2C376)",
-                    boxShadow: "0 0 15px rgba(201,168,76,0.4)",
+                    background: "linear-gradient(135deg, #00A3E0, #33B8E8)",
+                    boxShadow: "0 0 15px rgba(0, 163, 224,0.4)",
                   }}
                 >
                   <div className="w-full h-full rounded-[10px] sm:rounded-[14px] bg-[#09090d] flex items-center justify-center">
-                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "#C9A84C" }} />
+                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "#00A3E0" }} />
                   </div>
                 </div>
               </div>

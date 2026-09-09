@@ -90,7 +90,7 @@ export const LiquidGlassCard: React.FC<LiquidGlassCardProps> = ({
           className="pointer-events-none absolute -inset-px transition-opacity duration-300 opacity-100"
           style={{
             background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, ${
-              glowColor || "rgba(201, 168, 76, 0.14)"
+              glowColor || "rgba(0, 163, 224, 0.14)"
             }, transparent 70%)`,
             zIndex: 1,
           }}

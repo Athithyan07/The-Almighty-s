@@ -60,14 +60,14 @@ function ContactWidget() {
   return (
     <LiquidGlassCard
       enableTilt={false}
-      className="w-full text-left rounded-3xl p-6 sm:p-10 lg:p-12 border border-amber-600/20 dark:border-amber-400/25"
+      className="w-full text-left rounded-3xl p-6 sm:p-10 lg:p-12 border border-sky-500/20 dark:border-sky-300/25"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch w-full">
         {/* Left 5 cols: Contact Cards */}
         <div className="lg:col-span-5 flex flex-col justify-between gap-6">
           <div>
             <span className="luxury-overline block mb-2">Get in Touch</span>
-            <h3 className="editorial-subheading mb-3 text-neutral-900 dark:text-amber-100" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.4rem)" }}>
+            <h3 className="editorial-subheading mb-3 text-neutral-900 dark:text-sky-100" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.4rem)" }}>
               Admissions Desk
             </h3>
             <p className="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
@@ -76,34 +76,34 @@ function ContactWidget() {
           </div>
 
           <div className="space-y-3">
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-amber-600/20 dark:border-amber-400/20 bg-amber-500/10 dark:bg-white/5 backdrop-blur-[5px]">
-              <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-[#C9A84C]" />
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px]">
+              <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
               <div>
-                <div className="text-sm font-bold text-neutral-900 dark:text-amber-100">Campus Address</div>
+                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100">Campus Address</div>
                 <div className="text-xs text-neutral-600 dark:text-neutral-400">The Almighty&apos;s School Campus, Main Road, Tamil Nadu</div>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-amber-600/20 dark:border-amber-400/20 bg-amber-500/10 dark:bg-white/5 backdrop-blur-[5px]">
-              <Phone className="w-5 h-5 shrink-0 mt-0.5 text-[#C9A84C]" />
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px]">
+              <Phone className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
               <div>
-                <div className="text-sm font-bold text-neutral-900 dark:text-amber-100">Call Admissions</div>
+                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100">Call Admissions</div>
                 <div className="text-xs text-neutral-600 dark:text-neutral-400">+91 (044) 2345-6789 / +91 98765 43210</div>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-amber-600/20 dark:border-amber-400/20 bg-amber-500/10 dark:bg-white/5 backdrop-blur-[5px]">
-              <Mail className="w-5 h-5 shrink-0 mt-0.5 text-[#C9A84C]" />
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px]">
+              <Mail className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
               <div>
-                <div className="text-sm font-bold text-neutral-900 dark:text-amber-100">Email Us</div>
+                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100">Email Us</div>
                 <div className="text-xs text-neutral-600 dark:text-neutral-400">admissions@almightyschool.edu.in</div>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-amber-600/20 dark:border-amber-400/20 bg-amber-500/10 dark:bg-white/5 backdrop-blur-[5px]">
-              <Clock className="w-5 h-5 shrink-0 mt-0.5 text-[#C9A84C]" />
+            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px]">
+              <Clock className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
               <div>
-                <div className="text-sm font-bold text-neutral-900 dark:text-amber-100">Working Hours</div>
+                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100">Working Hours</div>
                 <div className="text-xs text-neutral-600 dark:text-neutral-400">Mon – Sat: 8:30 AM – 5:00 PM</div>
               </div>
             </div>
@@ -128,9 +128,9 @@ function ContactWidget() {
         <div className="lg:col-span-7 flex flex-col justify-center h-full">
           {submitted ? (
             <div
-              className="p-8 sm:p-12 rounded-2xl text-center flex flex-col items-center justify-center gap-4 bg-white/40 dark:bg-black/30 border border-amber-600/20 dark:border-amber-400/25 backdrop-blur-[5px] h-full"
+              className="p-8 sm:p-12 rounded-2xl text-center flex flex-col items-center justify-center gap-4 bg-white/40 dark:bg-black/30 border border-sky-500/20 dark:border-sky-300/25 backdrop-blur-[5px] h-full"
             >
-              <CheckCircle className="w-12 h-12 text-[#C9A84C]" />
+              <CheckCircle className="w-12 h-12 text-[#00A3E0]" />
               <h4 className="editorial-subheading text-neutral-900 dark:text-neutral-100">
                 Inquiry Received!
               </h4>
@@ -147,7 +147,7 @@ function ContactWidget() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="p-6 sm:p-8 rounded-2xl space-y-4 bg-white/30 dark:bg-black/25 border border-amber-600/20 dark:border-white/15 backdrop-blur-[5px] h-full flex flex-col justify-between"
+              className="p-6 sm:p-8 rounded-2xl space-y-4 bg-white/30 dark:bg-black/25 border border-sky-500/20 dark:border-white/15 backdrop-blur-[5px] h-full flex flex-col justify-between"
             >
               <div>
                 <label className="text-neutral-800 dark:text-neutral-200 text-xs font-bold tracking-wider uppercase block mb-1.5">
@@ -159,7 +159,7 @@ function ContactWidget() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Mr. S. Ramanathan"
-                  className="w-full px-4 py-3 rounded-xl outline-none transition-all bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 text-sm focus:border-amber-500 dark:focus:border-amber-400 font-medium"
+                  className="w-full px-4 py-3 rounded-xl outline-none transition-all bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
                 />
               </div>
 
@@ -174,7 +174,7 @@ function ContactWidget() {
                     value={formData.contact}
                     onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                     placeholder="Phone / Email ID"
-                    className="w-full px-4 py-3 rounded-xl outline-none transition-all bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 text-sm focus:border-amber-500 dark:focus:border-amber-400 font-medium"
+                    className="w-full px-4 py-3 rounded-xl outline-none transition-all bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
                   />
                 </div>
 
@@ -185,7 +185,7 @@ function ContactWidget() {
                   <select
                     value={formData.grade}
                     onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl outline-none transition-all cursor-pointer bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 text-sm focus:border-amber-500 dark:focus:border-amber-400 font-medium"
+                    className="w-full px-4 py-3 rounded-xl outline-none transition-all cursor-pointer bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
                   >
                     <option value="KG - Primary" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Kindergarten & Primary (KG – Grade 5)</option>
                     <option value="Middle School" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Middle School (Grades 6 – 8)</option>
@@ -204,7 +204,7 @@ function ContactWidget() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Ask about admission process, fees, or request a campus tour..."
-                  className="w-full px-4 py-3 rounded-xl outline-none transition-all resize-none bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 text-sm focus:border-amber-500 dark:focus:border-amber-400 font-medium"
+                  className="w-full px-4 py-3 rounded-xl outline-none transition-all resize-none bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
                 />
               </div>
 
@@ -213,7 +213,7 @@ function ContactWidget() {
                 variant="primary"
                 className="w-full justify-center mt-2"
               >
-                <Send className="w-3.5 h-3.5 text-[#C9A84C]" />
+                <Send className="w-3.5 h-3.5 text-[#00A3E0]" />
                 Submit Admission Inquiry
               </LiquidGlassButton>
             </form>
@@ -310,7 +310,7 @@ export default function HomePage() {
           fill
           priority
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
@@ -330,8 +330,8 @@ export default function HomePage() {
               size="md"
               icon={
                 <span className="relative flex h-2 w-2 mr-1">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C9A84C] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C9A84C]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00A3E0] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00A3E0]" />
                 </span>
               }
             >
@@ -353,7 +353,7 @@ export default function HomePage() {
             >
               Shaping Futures
               <br />
-              <em className="text-[#C9A84C] italic">Since 2003</em>
+              <em className="text-[#00A3E0] italic">Since 2003</em>
             </motion.h1>
 
             {/* Gold divider */}
@@ -415,17 +415,17 @@ export default function HomePage() {
               className="px-3.5 py-1.5 sm:px-6 sm:py-2.5 flex flex-wrap items-center justify-center gap-2.5 sm:gap-8 text-[0.65rem] sm:text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200"
             >
               <span className="flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#C9A84C]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#00A3E0]" />
                 State Board Certified
               </span>
               <span className="opacity-30 hidden sm:inline">|</span>
               <span className="flex items-center gap-1">
-                <Star className="w-3.5 h-3.5 text-[#C9A84C]" />
+                <Star className="w-3.5 h-3.5 text-[#00A3E0]" />
                 100% Distinction Track
               </span>
               <span className="opacity-30 hidden sm:inline">|</span>
               <span className="flex items-center gap-1">
-                <Users className="w-3.5 h-3.5 text-[#C9A84C]" />
+                <Users className="w-3.5 h-3.5 text-[#00A3E0]" />
                 3,200+ Scholars
               </span>
             </LiquidGlassContainer>
@@ -438,7 +438,7 @@ export default function HomePage() {
 
       {/* ══ STATS SECTION WITH LIQUID GLASS STATS ══ */}
       <section
-        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-sky-500/15 dark:border-sky-300/15"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <Scroll3DReveal direction="up">
@@ -501,16 +501,16 @@ export default function HomePage() {
           alt="Campus Life at The Almighty's Matriculation School"
           fill
           className="object-cover"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="cinematic-overlay-tint absolute inset-0 transition-all duration-300" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-10 lg:px-16">
           <Scroll3DReveal direction="left">
-            <LiquidGlassCard enableTilt={false} className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl max-w-xl border border-amber-600/20 dark:border-amber-400/25">
+            <LiquidGlassCard enableTilt={false} className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl max-w-xl border border-sky-500/20 dark:border-sky-300/25">
               <span className="luxury-overline block mb-2 sm:mb-3">Campus Life</span>
-              <h2 className="editorial-heading text-neutral-900 dark:text-amber-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
+              <h2 className="editorial-heading text-neutral-900 dark:text-sky-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
                 Life at<br />
-                <em className="text-[#C9A84C]">The Almighty&apos;s</em>
+                <em className="text-[#00A3E0]">The Almighty&apos;s</em>
               </h2>
               <p
                 className="mt-3 sm:mt-4 luxury-text-readable font-editorial italic text-neutral-800 dark:text-neutral-200 text-sm sm:text-base leading-relaxed"
@@ -537,18 +537,18 @@ export default function HomePage() {
 
       {/* ══ GROWTH PILLARS ══ */}
       <section
-        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-sky-500/15 dark:border-sky-300/15"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <Scroll3DReveal direction="up">
-            <LiquidGlassCard enableTilt={false} className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl mb-8 sm:mb-12 max-w-3xl border border-amber-600/20 dark:border-amber-400/25">
+            <LiquidGlassCard enableTilt={false} className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl mb-8 sm:mb-12 max-w-3xl border border-sky-500/20 dark:border-sky-300/25">
               <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                 <LiquidGlassBadge variant="gold" size="sm">Our Growth Pillars</LiquidGlassBadge>
                 <div className="gold-line flex-1" />
               </div>
-              <h2 className="editorial-heading text-neutral-900 dark:text-amber-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
+              <h2 className="editorial-heading text-neutral-900 dark:text-sky-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
                 Nurturing Mind,{" "}
-                <em className="text-[#C9A84C]">Heart and Character</em>
+                <em className="text-[#00A3E0]">Heart and Character</em>
               </h2>
             </LiquidGlassCard>
           </Scroll3DReveal>
@@ -558,18 +558,18 @@ export default function HomePage() {
               <Scroll3DReveal key={i} index={i} direction="up">
                 <LiquidGlassCard
                   enableTilt={true}
-                  className="group flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-10 p-5 sm:p-8 rounded-2xl border border-amber-600/20 dark:border-amber-400/25"
+                  className="group flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-10 p-5 sm:p-8 rounded-2xl border border-sky-500/20 dark:border-sky-300/25"
                 >
                   <div className="flex items-center justify-between sm:justify-start gap-4">
                     <span className="counter-label shrink-0 sm:w-12 pt-0.5">{p.num}</span>
                     <div
-                      className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center border border-amber-600/30 dark:border-amber-400/35 bg-amber-500/10 dark:bg-amber-400/10"
+                      className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center border border-sky-500/30 dark:border-sky-300/35 bg-sky-400/10 dark:bg-sky-300/10"
                     >
-                      <p.Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#C9A84C]" />
+                      <p.Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#00A3E0]" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="editorial-subheading mb-2 sm:mb-3 text-neutral-900 dark:text-amber-100" style={{ fontSize: "clamp(1.2rem, 3vw, 2.2rem)" }}>
+                    <h3 className="editorial-subheading mb-2 sm:mb-3 text-neutral-900 dark:text-sky-100" style={{ fontSize: "clamp(1.2rem, 3vw, 2.2rem)" }}>
                       {p.title}
                     </h3>
                     <p className="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed max-w-xl">
@@ -578,7 +578,7 @@ export default function HomePage() {
                   </div>
                   <Link
                     href={p.href}
-                    className="shrink-0 flex items-center gap-1.5 self-start sm:self-center hover:opacity-100 transition-opacity mt-2 sm:mt-0 text-[#C9A84C] font-bold uppercase text-xs tracking-wider"
+                    className="shrink-0 flex items-center gap-1.5 self-start sm:self-center hover:opacity-100 transition-opacity mt-2 sm:mt-0 text-[#00A3E0] font-bold uppercase text-xs tracking-wider"
                   >
                     {p.cta}
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -592,7 +592,7 @@ export default function HomePage() {
 
       {/* ══ ENROLL AT THE ALMIGHTY'S & CONTACT US WIDGET ══ */}
       <section
-        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-sky-500/15 dark:border-sky-300/15"
       >
         {/* Layered Campus Photo Background - 95% Visibility */}
         <Image
@@ -600,16 +600,16 @@ export default function HomePage() {
           alt="Admissions at The Almighty's Matriculation School"
           fill
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
         <div className="max-w-6xl mx-auto relative z-10">
           <Scroll3DReveal direction="up">
-            <LiquidGlassCard enableTilt={false} className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl mb-8 sm:mb-12 inline-block max-w-2xl mx-auto border border-amber-600/20 dark:border-amber-400/25">
+            <LiquidGlassCard enableTilt={false} className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl mb-8 sm:mb-12 inline-block max-w-2xl mx-auto border border-sky-500/20 dark:border-sky-300/25">
               <LiquidGlassBadge variant="gold" size="sm" className="mb-2 sm:mb-3">Admissions & Inquiries</LiquidGlassBadge>
-              <h2 className="editorial-heading mb-2 sm:mb-3 text-neutral-900 dark:text-amber-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
-                Enroll at <em className="text-[#C9A84C]">The Almighty&apos;s</em>
+              <h2 className="editorial-heading mb-2 sm:mb-3 text-neutral-900 dark:text-sky-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
+                Enroll at <em className="text-[#00A3E0]">The Almighty&apos;s</em>
               </h2>
               <div className="gold-line max-w-xs mx-auto my-3 sm:my-4" />
               <p
@@ -630,3 +630,4 @@ export default function HomePage() {
     </motion.div>
   );
 }
+

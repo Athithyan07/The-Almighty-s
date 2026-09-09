@@ -56,10 +56,10 @@ export const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
 
   const variantClasses = {
     primary:
-      "bg-amber-500/25 dark:bg-amber-400/20 text-neutral-900 dark:text-amber-100 border-amber-500/50 dark:border-amber-400/50 hover:bg-amber-500/35 dark:hover:bg-amber-400/30 backdrop-blur-[5px]",
+      "bg-sky-400/25 dark:bg-sky-300/20 text-neutral-900 dark:text-sky-100 border-sky-400/50 dark:border-sky-300/50 hover:bg-sky-400/35 dark:hover:bg-sky-300/30 backdrop-blur-[5px]",
     secondary:
       "bg-white/60 dark:bg-white/10 text-neutral-900 dark:text-neutral-100 border-neutral-300/80 dark:border-white/20 hover:bg-white/80 dark:hover:bg-white/20 backdrop-blur-[5px] shadow-sm",
-    gold: "bg-gradient-to-r from-amber-500/30 via-yellow-400/20 to-amber-600/30 text-neutral-900 dark:text-amber-100 border-amber-400/60 shadow-[0_0_20px_rgba(201,168,76,0.3)] backdrop-blur-[5px]",
+    gold: "bg-gradient-to-r from-[#00A3E0]/30 via-sky-400/20 to-sky-600/30 text-neutral-900 dark:text-sky-100 border-sky-300/60 shadow-[0_0_20px_rgba(0, 163, 224,0.3)] backdrop-blur-[5px]",
     nested: "liquid-glass-nested text-neutral-900 dark:text-neutral-100",
   }[variant];
 
@@ -69,7 +69,7 @@ export const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
       whileTap={{ scale: 0.96 }}
       onClick={handleClick}
       className={`liquid-glass-button liquid-glass-rim group relative inline-flex items-center justify-center gap-2 cursor-pointer font-sans transition-all duration-300 uppercase select-none ${shapeClasses} ${sizeClasses} ${variantClasses} ${
-        glow ? "hover:shadow-[0_0_25px_rgba(201,168,76,0.35)]" : ""
+        glow ? "hover:shadow-[0_0_25px_rgba(0, 163, 224,0.35)]" : ""
       } ${className}`}
       {...(props as any)}
     >
@@ -77,7 +77,7 @@ export const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
       {ripples.map((ripple) => (
         <span
           key={ripple.id}
-          className="pointer-events-none absolute rounded-full bg-white/40 dark:bg-amber-300/40 animate-ping duration-700"
+          className="pointer-events-none absolute rounded-full bg-white/40 dark:bg-sky-300/40 animate-ping duration-700"
           style={{
             left: ripple.x - 20,
             top: ripple.y - 20,

@@ -64,24 +64,24 @@ export const LiquidGlassStat: React.FC<LiquidGlassStatProps> = ({
     <div ref={ref} className="w-full">
       <LiquidGlassCard
         enableTilt={true}
-        className={`flex flex-col justify-between min-h-[180px] sm:min-h-[200px] border border-amber-600/20 dark:border-amber-400/25 ${className}`}
+        className={`flex flex-col justify-between min-h-[180px] sm:min-h-[200px] border border-sky-500/20 dark:border-sky-300/25 ${className}`}
       >
         <div className="flex items-center justify-between w-full mb-3">
-          <span className="text-[0.68rem] sm:text-xs font-bold uppercase tracking-widest text-[#C9A84C]">
+          <span className="text-[0.68rem] sm:text-xs font-bold uppercase tracking-widest text-[#00A3E0]">
             {label}
           </span>
           {icon && (
-            <div className="w-9 h-9 rounded-full bg-amber-500/10 dark:bg-amber-400/15 flex items-center justify-center text-[#C9A84C]">
+            <div className="w-9 h-9 rounded-full bg-sky-400/10 dark:bg-sky-300/15 flex items-center justify-center text-[#00A3E0]">
               {icon}
             </div>
           )}
         </div>
 
         <div className="my-auto">
-          <div className="luxury-stat-num text-3xl sm:text-4xl md:text-5xl font-black text-[#C9A84C] flex items-baseline">
+          <div className="luxury-stat-num text-3xl sm:text-4xl md:text-5xl font-black text-[#00A3E0] flex items-baseline">
             {prefix && <span>{prefix}</span>}
             <span>{Math.floor(count).toLocaleString()}</span>
-            {suffix && <span className="text-[#C9A84C]">{suffix}</span>}
+            {suffix && <span className="text-[#00A3E0]">{suffix}</span>}
           </div>
         </div>
 

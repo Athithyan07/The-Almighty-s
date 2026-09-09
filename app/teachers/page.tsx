@@ -126,7 +126,7 @@ export default function TeachersPage() {
           fill
           priority
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
@@ -142,7 +142,7 @@ export default function TeachersPage() {
             <h1 className="editorial-heading-lg" style={{ fontSize: "clamp(2rem, 6.5vw, 6.5rem)" }}>
               Compassionate Mentors
               <br />
-              <em className="text-[#C9A84C] italic">Inspiring Teachers</em>
+              <em className="text-[#00A3E0] italic">Inspiring Teachers</em>
             </h1>
 
             <div className="gold-line max-w-xs mx-auto my-3 sm:my-6" />
@@ -164,7 +164,7 @@ export default function TeachersPage() {
                     onClick={() => setSelectedDept(dept)}
                     className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 backdrop-blur-[5px] cursor-pointer ${
                       isSelected
-                        ? "bg-amber-500/25 dark:bg-amber-400/25 border border-amber-500/60 dark:border-amber-400/60 text-neutral-900 dark:text-amber-100 shadow-[0_0_15px_rgba(201,168,76,0.3)] font-black"
+                        ? "bg-sky-400/25 dark:bg-sky-300/25 border border-sky-400/60 dark:border-sky-300/60 text-neutral-900 dark:text-sky-100 shadow-[0_0_15px_rgba(0, 163, 224,0.3)] font-black"
                         : "bg-white/40 dark:bg-black/30 border border-neutral-300/60 dark:border-white/15 text-neutral-800 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-white/15"
                     }`}
                   >
@@ -179,7 +179,7 @@ export default function TeachersPage() {
 
       {/* ══ TEACHERS GRID ══ */}
       <section
-        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-sky-500/15 dark:border-sky-300/15"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8 relative z-10">
           {filteredTeachers.map((teacher, idx) => (
@@ -192,7 +192,7 @@ export default function TeachersPage() {
 
       {/* ══ SASC PORTAL BANNER (PRE-FOOTER SEGMENT WITH BG IMAGE) ══ */}
       <section
-        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-sky-500/15 dark:border-sky-300/15"
       >
         {/* Layered Campus Photo Background - 95% Visibility */}
         <Image
@@ -200,7 +200,7 @@ export default function TeachersPage() {
           alt="Faculty and Mentorship at The Almighty's School"
           fill
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
@@ -208,14 +208,14 @@ export default function TeachersPage() {
           <Scroll3DReveal direction="scale">
             <LiquidGlassCard
               enableTilt={false}
-              className="p-6 sm:p-14 rounded-3xl sm:rounded-[2.5rem] border border-amber-600/20 dark:border-amber-400/25 relative overflow-hidden text-center"
+              className="p-6 sm:p-14 rounded-3xl sm:rounded-[2.5rem] border border-sky-500/20 dark:border-sky-300/25 relative overflow-hidden text-center"
             >
               <div className="relative z-10 flex flex-col items-center">
                 <LiquidGlassBadge variant="gold" size="sm" className="mb-3 sm:mb-4">
                   Parent-Teacher Communication
                 </LiquidGlassBadge>
                 <h2 className="editorial-heading text-neutral-900 dark:text-neutral-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
-                  Connect via <em className="text-[#C9A84C]">SASC Portal</em>
+                  Connect via <em className="text-[#00A3E0]">SASC Portal</em>
                 </h2>
 
                 <div className="gold-line max-w-xs mx-auto my-4 sm:my-6" />
@@ -246,4 +246,5 @@ export default function TeachersPage() {
     </div>
   );
 }
+
 

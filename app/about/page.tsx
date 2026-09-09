@@ -27,14 +27,14 @@ export default function AboutPage() {
           fill
           priority
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
         <Scroll3DReveal direction="up" className="max-w-4xl mx-auto">
           {/* Emblem */}
           <div className="flex justify-center mb-4 sm:mb-8">
-            <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-2xl p-1 backdrop-blur-[5px] bg-white/40 dark:bg-black/40 border border-amber-600/30 dark:border-amber-400/35 shadow-xl">
+            <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-2xl p-1 backdrop-blur-[5px] bg-white/40 dark:bg-black/40 border border-sky-500/30 dark:border-sky-300/35 shadow-xl">
               <Image
                 src="/logo.png"
                 alt="The Almighty's Matriculation School Logo"
@@ -55,7 +55,7 @@ export default function AboutPage() {
             <h1 className="editorial-heading-lg" style={{ fontSize: "clamp(2rem, 6.5vw, 6.5rem)" }}>
               Nurturing Futures
               <br />
-              <em className="text-[#C9A84C] italic">With Character & Virtue</em>
+              <em className="text-[#00A3E0] italic">With Character & Virtue</em>
             </h1>
 
             <div className="gold-line max-w-xs mx-auto my-3 sm:my-6" />
@@ -86,21 +86,21 @@ export default function AboutPage() {
 
       {/* ══ CHARTER & STATS SPLIT ══ */}
       <section
-        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-sky-500/15 dark:border-sky-300/15"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start relative z-10">
           {/* Left: School Charter */}
           <Scroll3DReveal direction="left" className="lg:col-span-7">
             <LiquidGlassCard
               enableTilt={false}
-              className="p-6 sm:p-10 rounded-3xl border border-amber-600/20 dark:border-amber-400/25"
+              className="p-6 sm:p-10 rounded-3xl border border-sky-500/20 dark:border-sky-300/25"
             >
               <div className="space-y-5 sm:space-y-6">
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-amber-600/30 dark:border-amber-400/35 bg-amber-500/10 dark:bg-amber-400/10"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-sky-500/30 dark:border-sky-300/35 bg-sky-400/10 dark:bg-sky-300/10"
                   >
-                    <Target className="w-5 h-5 text-[#C9A84C]" />
+                    <Target className="w-5 h-5 text-[#00A3E0]" />
                   </div>
                   <div>
                     <span className="counter-label block text-[0.65rem] sm:text-[0.7rem]">Guiding Philosophy</span>
@@ -123,9 +123,9 @@ export default function AboutPage() {
                 </p>
 
                 {/* Pillars */}
-                <div className="pt-5 sm:pt-6 space-y-3 sm:space-y-4 border-t border-amber-600/15 dark:border-white/15">
+                <div className="pt-5 sm:pt-6 space-y-3 sm:space-y-4 border-t border-sky-500/15 dark:border-white/15">
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 text-[#C9A84C]" />
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
                     <div>
                       <strong className="text-neutral-900 dark:text-neutral-100 text-sm block">
                         Virtue & Integrity Above All
@@ -137,7 +137,7 @@ export default function AboutPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 text-[#C9A84C]" />
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
                     <div>
                       <strong className="text-neutral-900 dark:text-neutral-100 text-sm block">
                         100% Board Pass Rate Culture
@@ -149,7 +149,7 @@ export default function AboutPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 text-[#C9A84C]" />
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
                     <div>
                       <strong className="text-neutral-900 dark:text-neutral-100 text-sm block">
                         Modern Technology & Hands-on Labs
@@ -162,7 +162,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Signature */}
-                <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 border-t border-amber-600/15 dark:border-white/15">
+                <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 border-t border-sky-500/15 dark:border-white/15">
                   <div>
                     <div className="font-editorial font-bold text-neutral-900 dark:text-neutral-100 text-sm">
                       Management & Principal
@@ -171,7 +171,7 @@ export default function AboutPage() {
                       The Almighty&apos;s Matriculation School
                     </div>
                   </div>
-                  <div className="font-editorial italic text-lg text-[#C9A84C] font-bold">
+                  <div className="font-editorial italic text-lg text-[#00A3E0] font-bold">
                     The Almighty&apos;s
                   </div>
                 </div>
@@ -211,15 +211,15 @@ export default function AboutPage() {
 
       {/* ══ CORE VALUES ══ */}
       <section
-        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#FFFFFF] dark:bg-[#111116] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 overflow-hidden bg-[#FFFFFF] dark:bg-[#111116] animated-line-pattern border-y border-sky-500/15 dark:border-sky-300/15"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <Scroll3DReveal direction="up" className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
-            <LiquidGlassCard enableTilt={false} className="p-6 sm:p-8 rounded-3xl border border-amber-600/20 dark:border-amber-400/25">
+            <LiquidGlassCard enableTilt={false} className="p-6 sm:p-8 rounded-3xl border border-sky-500/20 dark:border-sky-300/25">
               <LiquidGlassBadge variant="gold" size="sm" className="mb-2 sm:mb-3">Our Guiding Light</LiquidGlassBadge>
               <h2 className="editorial-heading text-neutral-900 dark:text-neutral-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
                 Values That Anchor<br />
-                <em className="text-[#C9A84C]">Every Student</em>
+                <em className="text-[#00A3E0]">Every Student</em>
               </h2>
               <div className="gold-line max-w-xs mx-auto my-3 sm:my-4" />
             </LiquidGlassCard>
@@ -229,13 +229,13 @@ export default function AboutPage() {
             <Scroll3DReveal index={0} direction="up">
               <LiquidGlassCard
                 enableTilt={true}
-                className="p-6 sm:p-8 rounded-3xl h-full flex flex-col justify-between border border-amber-600/20 dark:border-amber-400/25"
+                className="p-6 sm:p-8 rounded-3xl h-full flex flex-col justify-between border border-sky-500/20 dark:border-sky-300/25"
               >
                 <div>
                   <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-6 border border-amber-600/30 dark:border-amber-400/35 bg-amber-500/10 dark:bg-amber-400/10"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-6 border border-sky-500/30 dark:border-sky-300/35 bg-sky-400/10 dark:bg-sky-300/10"
                   >
-                    <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-[#C9A84C]" />
+                    <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-[#00A3E0]" />
                   </div>
                   <h3 className="editorial-subheading mb-2 sm:mb-3 text-neutral-900 dark:text-neutral-100" style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)" }}>
                     Curiosity & Diligence
@@ -250,13 +250,13 @@ export default function AboutPage() {
             <Scroll3DReveal index={1} direction="up">
               <LiquidGlassCard
                 enableTilt={true}
-                className="p-6 sm:p-8 rounded-3xl h-full flex flex-col justify-between border border-amber-600/20 dark:border-amber-400/25"
+                className="p-6 sm:p-8 rounded-3xl h-full flex flex-col justify-between border border-sky-500/20 dark:border-sky-300/25"
               >
                 <div>
                   <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-6 border border-amber-600/30 dark:border-amber-400/35 bg-amber-500/10 dark:bg-amber-400/10"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-6 border border-sky-500/30 dark:border-sky-300/35 bg-sky-400/10 dark:bg-sky-300/10"
                   >
-                    <HeartHandshake className="w-5 h-5 sm:w-6 sm:h-6 text-[#C9A84C]" />
+                    <HeartHandshake className="w-5 h-5 sm:w-6 sm:h-6 text-[#00A3E0]" />
                   </div>
                   <h3 className="editorial-subheading mb-2 sm:mb-3 text-neutral-900 dark:text-neutral-100" style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)" }}>
                     Empathy & Social Respect
@@ -271,13 +271,13 @@ export default function AboutPage() {
             <Scroll3DReveal index={2} direction="up">
               <LiquidGlassCard
                 enableTilt={true}
-                className="p-6 sm:p-8 rounded-3xl h-full flex flex-col justify-between border border-amber-600/20 dark:border-amber-400/25"
+                className="p-6 sm:p-8 rounded-3xl h-full flex flex-col justify-between border border-sky-500/20 dark:border-sky-300/25"
               >
                 <div>
                   <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-6 border border-amber-600/30 dark:border-amber-400/35 bg-amber-500/10 dark:bg-amber-400/10"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-6 border border-sky-500/30 dark:border-sky-300/35 bg-sky-400/10 dark:bg-sky-300/10"
                   >
-                    <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-[#C9A84C]" />
+                    <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-[#00A3E0]" />
                   </div>
                   <h3 className="editorial-subheading mb-2 sm:mb-3 text-neutral-900 dark:text-neutral-100" style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)" }}>
                     Excellence in Action
@@ -294,7 +294,7 @@ export default function AboutPage() {
 
       {/* ══ SASC PORTAL BANNER ══ */}
       <section
-        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-14 sm:py-24 px-4 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-sky-500/15 dark:border-sky-300/15"
       >
         {/* Layered Campus Photo Background - 95% Visibility */}
         <Image
@@ -302,7 +302,7 @@ export default function AboutPage() {
           alt="Admissions at The Almighty's Matriculation School"
           fill
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
@@ -310,10 +310,10 @@ export default function AboutPage() {
           <Scroll3DReveal direction="scale">
             <LiquidGlassCard
               enableTilt={false}
-              className="p-6 sm:p-14 rounded-3xl sm:rounded-[2.5rem] border border-amber-600/20 dark:border-amber-400/25 relative overflow-hidden text-center"
+              className="p-6 sm:p-14 rounded-3xl sm:rounded-[2.5rem] border border-sky-500/20 dark:border-sky-300/25 relative overflow-hidden text-center"
             >
               <div className="relative z-10 flex flex-col items-center">
-                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl p-1 mb-4 sm:mb-6 border border-amber-600/30 dark:border-amber-400/35 bg-white/40 dark:bg-black/40 shadow-lg">
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl p-1 mb-4 sm:mb-6 border border-sky-500/30 dark:border-sky-300/35 bg-white/40 dark:bg-black/40 shadow-lg">
                   <Image
                     src="/logo.png"
                     alt="The Almighty's Matriculation School"
@@ -326,7 +326,7 @@ export default function AboutPage() {
                   Admissions Open 2026 – 2027
                 </LiquidGlassBadge>
                 <h2 className="editorial-heading text-neutral-900 dark:text-neutral-100" style={{ fontSize: "clamp(1.8rem, 5vw, 4rem)" }}>
-                  Enroll at <em className="text-[#C9A84C]">The Almighty&apos;s</em>
+                  Enroll at <em className="text-[#00A3E0]">The Almighty&apos;s</em>
                 </h2>
 
                 <div className="gold-line max-w-xs mx-auto my-4 sm:my-6" />
@@ -358,4 +358,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
 

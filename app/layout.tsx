@@ -100,11 +100,9 @@ export default function RootLayout({
             fill
             priority
             fetchPriority="high"
-            className="object-cover"
-            style={{ filter: "brightness(0.95) saturate(1.0)" }}
+            className="object-cover opacity-100"
+            style={{ filter: "brightness(1.0) saturate(1.0)" }}
           />
-          {/* Subtle translucent tint to maintain high text contrast in dark & light themes */}
-          <div className="absolute inset-0 global-overlay-tint transition-all duration-300" />
         </div>
 
         <ThemeProvider>
@@ -126,3 +124,4 @@ export default function RootLayout({
     </html>
   );
 }
+

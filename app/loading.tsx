@@ -14,14 +14,13 @@ export default function Loading() {
           alt="The Almighty's School Campus"
           fill
           priority
-          className="object-cover opacity-80"
-          style={{ filter: "brightness(0.75)" }}
+          className="object-cover opacity-100"
+          style={{ filter: "brightness(1.0)" }}
         />
-        <div className="absolute inset-0 bg-neutral-950/40 dark:bg-black/60 backdrop-blur-[2px]" />
       </div>
 
-      <div className="relative flex flex-col items-center gap-5 p-8 sm:p-10 rounded-3xl liquid-glass-card shadow-[0_0_60px_rgba(201,168,76,0.22)] border border-amber-500/30 backdrop-blur-2xl">
-        <div className="relative w-16 h-16 rounded-2xl p-2 flex items-center justify-center bg-amber-500/15 border border-amber-500/40 shadow-[0_0_25px_rgba(201,168,76,0.3)]">
+      <div className="relative flex flex-col items-center gap-5 p-8 sm:p-10 rounded-3xl liquid-glass-card shadow-[0_0_60px_rgba(0, 163, 224,0.22)] border border-sky-400/30 backdrop-blur-2xl">
+        <div className="relative w-16 h-16 rounded-2xl p-2 flex items-center justify-center bg-sky-400/15 border border-sky-400/40 shadow-[0_0_25px_rgba(0, 163, 224,0.3)]">
           <Image
             src="/logo.png"
             alt="The Almighty's Logo"
@@ -33,13 +32,13 @@ export default function Loading() {
         </div>
 
         <div className="relative w-10 h-10 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full border-2 border-amber-500/20" />
-          <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#C9A84C] border-r-[#C9A84C] animate-spin" />
-          <Sparkles className="w-4 h-4 text-[#C9A84C] animate-pulse" />
+          <div className="absolute inset-0 rounded-full border-2 border-sky-400/20" />
+          <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#00A3E0] border-r-[#00A3E0] animate-spin" />
+          <Sparkles className="w-4 h-4 text-[#00A3E0] animate-pulse" />
         </div>
 
         <div className="text-center">
-          <span className="luxury-overline text-xs font-bold tracking-[0.25em] text-[#C9A84C] block">
+          <span className="luxury-overline text-xs font-bold tracking-[0.25em] text-[#00A3E0] block">
             Loading Page
           </span>
           <span className="text-[11px] font-semibold text-neutral-200 block mt-0.5">
@@ -50,3 +49,4 @@ export default function Loading() {
     </div>
   );
 }
+

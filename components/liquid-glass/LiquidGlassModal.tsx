@@ -50,12 +50,12 @@ export const LiquidGlassModal: React.FC<LiquidGlassModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 350 }}
-            className={`liquid-glass-container liquid-glass-rim relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-8 border border-amber-500/30 dark:border-amber-400/40 shadow-2xl ${className}`}
+            className={`liquid-glass-container liquid-glass-rim relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-8 border border-sky-400/30 dark:border-sky-300/40 shadow-2xl ${className}`}
           >
             {/* Header */}
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-amber-500/20 dark:border-amber-400/25">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-sky-400/20 dark:border-sky-300/25">
               {title && (
-                <h3 className="editorial-subheading text-xl sm:text-2xl font-bold text-neutral-900 dark:text-amber-100">
+                <h3 className="editorial-subheading text-xl sm:text-2xl font-bold text-neutral-900 dark:text-sky-100">
                   {title}
                 </h3>
               )}

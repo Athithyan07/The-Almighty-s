@@ -22,7 +22,7 @@ export default function GalleryPage() {
           fill
           priority
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
@@ -38,7 +38,7 @@ export default function GalleryPage() {
             <h1 className="editorial-heading-lg" style={{ fontSize: "clamp(2rem, 6.5vw, 6.5rem)" }}>
               Cherished Memories
               <br />
-              <em className="text-[#C9A84C] italic">Joy & Triumphs</em>
+              <em className="text-[#00A3E0] italic">Joy & Triumphs</em>
             </h1>
 
             <div className="gold-line max-w-xs mx-auto my-3 sm:my-6" />
@@ -55,7 +55,7 @@ export default function GalleryPage() {
 
       {/* ══ GALLERY MASONRY SPOTLIGHT ══ */}
       <section
-        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-sky-500/15 dark:border-sky-300/15"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <GallerySpotlight />
@@ -64,7 +64,7 @@ export default function GalleryPage() {
 
       {/* ══ SASC PORTAL BANNER (PRE-FOOTER SEGMENT WITH BG IMAGE) ══ */}
       <section
-        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-sky-500/15 dark:border-sky-300/15"
       >
         {/* Layered Campus Photo Background - 95% Visibility */}
         <Image
@@ -72,7 +72,7 @@ export default function GalleryPage() {
           alt="School Gallery and Moments at The Almighty's School"
           fill
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
@@ -80,14 +80,14 @@ export default function GalleryPage() {
           <Scroll3DReveal direction="scale">
             <LiquidGlassCard
               enableTilt={false}
-              className="p-6 sm:p-14 rounded-3xl sm:rounded-[2.5rem] border border-amber-600/20 dark:border-amber-400/25 relative overflow-hidden text-center"
+              className="p-6 sm:p-14 rounded-3xl sm:rounded-[2.5rem] border border-sky-500/20 dark:border-sky-300/25 relative overflow-hidden text-center"
             >
               <div className="relative z-10 flex flex-col items-center">
                 <LiquidGlassBadge variant="gold" size="sm" className="mb-3 sm:mb-4">
                   Annual Day & Sports Meet Albums
                 </LiquidGlassBadge>
                 <h2 className="editorial-heading text-neutral-900 dark:text-neutral-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
-                  Download Event <em className="text-[#C9A84C]">Photo Albums</em>
+                  Download Event <em className="text-[#00A3E0]">Photo Albums</em>
                 </h2>
 
                 <div className="gold-line max-w-xs mx-auto my-4 sm:my-6" />
@@ -118,4 +118,5 @@ export default function GalleryPage() {
     </div>
   );
 }
+
 

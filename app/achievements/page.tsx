@@ -22,7 +22,7 @@ export default function AchievementsPage() {
           fill
           priority
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
@@ -38,7 +38,7 @@ export default function AchievementsPage() {
             <h1 className="editorial-heading-lg" style={{ fontSize: "clamp(2rem, 6.5vw, 6.5rem)" }}>
               A Tradition of
               <br />
-              <em className="text-[#C9A84C] italic">Academic & Moral Glory</em>
+              <em className="text-[#00A3E0] italic">Academic & Moral Glory</em>
             </h1>
 
             <div className="gold-line max-w-xs mx-auto my-3 sm:my-6" />
@@ -55,7 +55,7 @@ export default function AchievementsPage() {
               <div
                 className="p-3 sm:p-5 rounded-2xl flex flex-col items-center justify-center gap-1 backdrop-blur-[5px] bg-white/40 dark:bg-black/30 border border-neutral-300/60 dark:border-white/15"
               >
-                <div className="luxury-stat-num text-[#C9A84C]" style={{ fontSize: "clamp(1.5rem, 5vw, 2.4rem)" }}>100%</div>
+                <div className="luxury-stat-num text-[#00A3E0]" style={{ fontSize: "clamp(1.5rem, 5vw, 2.4rem)" }}>100%</div>
                 <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-300 text-center">
                   Board Pass Rate
                 </div>
@@ -64,7 +64,7 @@ export default function AchievementsPage() {
               <div
                 className="p-3 sm:p-5 rounded-2xl flex flex-col items-center justify-center gap-1 backdrop-blur-[5px] bg-white/40 dark:bg-black/30 border border-neutral-300/60 dark:border-white/15"
               >
-                <div className="luxury-stat-num text-[#C9A84C]" style={{ fontSize: "clamp(1.5rem, 5vw, 2.4rem)" }}>48+</div>
+                <div className="luxury-stat-num text-[#00A3E0]" style={{ fontSize: "clamp(1.5rem, 5vw, 2.4rem)" }}>48+</div>
                 <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-300 text-center">
                   State Trophies
                 </div>
@@ -73,7 +73,7 @@ export default function AchievementsPage() {
               <div
                 className="p-3 sm:p-5 rounded-2xl flex flex-col items-center justify-center gap-1 backdrop-blur-[5px] bg-white/40 dark:bg-black/30 border border-neutral-300/60 dark:border-white/15"
               >
-                <div className="luxury-stat-num text-[#C9A84C]" style={{ fontSize: "clamp(1.5rem, 5vw, 2.4rem)" }}>22</div>
+                <div className="luxury-stat-num text-[#00A3E0]" style={{ fontSize: "clamp(1.5rem, 5vw, 2.4rem)" }}>22</div>
                 <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-300 text-center">
                   Olympiad Golds
                 </div>
@@ -82,7 +82,7 @@ export default function AchievementsPage() {
               <div
                 className="p-3 sm:p-5 rounded-2xl flex flex-col items-center justify-center gap-1 backdrop-blur-[5px] bg-white/40 dark:bg-black/30 border border-neutral-300/60 dark:border-white/15"
               >
-                <div className="luxury-stat-num text-[#C9A84C]" style={{ fontSize: "clamp(1.5rem, 5vw, 2.4rem)" }}>#1</div>
+                <div className="luxury-stat-num text-[#00A3E0]" style={{ fontSize: "clamp(1.5rem, 5vw, 2.4rem)" }}>#1</div>
                 <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-300 text-center">
                   District Shield
                 </div>
@@ -94,7 +94,7 @@ export default function AchievementsPage() {
 
       {/* ══ TIMELINE SECTION ══ */}
       <section
-        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-20 px-3 sm:px-8 lg:px-12 overflow-hidden bg-[#FAF8F5] dark:bg-[#09090d] animated-line-pattern border-y border-sky-500/15 dark:border-sky-300/15"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <AchievementTimeline />
@@ -103,7 +103,7 @@ export default function AchievementsPage() {
 
       {/* ══ SASC PORTAL BANNER (PRE-FOOTER SEGMENT WITH BG IMAGE) ══ */}
       <section
-        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-amber-600/15 dark:border-amber-400/15"
+        className="relative py-10 sm:py-24 px-3 sm:px-8 lg:px-12 text-center overflow-hidden border-t border-sky-500/15 dark:border-sky-300/15"
       >
         {/* Layered Campus Photo Background - 95% Visibility */}
         <Image
@@ -111,7 +111,7 @@ export default function AchievementsPage() {
           alt="Honors and Academic Glory at The Almighty's School"
           fill
           className="object-cover -z-10"
-          style={{ filter: "brightness(0.95) saturate(1.0)" }}
+          style={{ filter: "brightness(1.0) saturate(1.0)" }}
         />
         <div className="hero-overlay-tint absolute inset-0 -z-10 pointer-events-none transition-all duration-300" />
 
@@ -119,14 +119,14 @@ export default function AchievementsPage() {
           <Scroll3DReveal direction="scale">
             <LiquidGlassCard
               enableTilt={false}
-              className="p-6 sm:p-14 rounded-3xl sm:rounded-[2.5rem] border border-amber-600/20 dark:border-amber-400/25 relative overflow-hidden text-center"
+              className="p-6 sm:p-14 rounded-3xl sm:rounded-[2.5rem] border border-sky-500/20 dark:border-sky-300/25 relative overflow-hidden text-center"
             >
               <div className="relative z-10 flex flex-col items-center">
                 <LiquidGlassBadge variant="gold" size="sm" className="mb-3 sm:mb-4">
                   Centralized SASC Cloud Portal
                 </LiquidGlassBadge>
                 <h2 className="editorial-heading text-neutral-900 dark:text-neutral-100" style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}>
-                  View Honor Roll & <em className="text-[#C9A84C]">Term Rankings</em>
+                  View Honor Roll & <em className="text-[#00A3E0]">Term Rankings</em>
                 </h2>
 
                 <div className="gold-line max-w-xs mx-auto my-4 sm:my-6" />
@@ -157,4 +157,5 @@ export default function AchievementsPage() {
     </div>
   );
 }
+
 

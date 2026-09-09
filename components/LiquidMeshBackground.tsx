@@ -85,7 +85,7 @@ export function LiquidMeshBackground() {
               top: "10%", left: "12%",
               width: "48vw", height: "48vw",
               maxWidth: "650px", maxHeight: "650px",
-              backgroundColor: isDark ? "rgba(201, 168, 76, 0.45)" : "rgba(255, 214, 10, 0.35)",
+              backgroundColor: isDark ? "rgba(0, 163, 224, 0.45)" : "rgba(0, 194, 255, 0.35)",
             }}
           />
 
@@ -118,7 +118,7 @@ export function LiquidMeshBackground() {
               top: "20%", left: "50%",
               width: "36vw", height: "36vw",
               maxWidth: "480px", maxHeight: "480px",
-              backgroundColor: isDark ? "rgba(245,158,11,0.35)" : "rgba(255,214,10,0.30)",
+              backgroundColor: isDark ? "rgba(0, 163, 224, 0.35)" : "rgba(0, 194, 255, 0.30)",
             }}
           />
 

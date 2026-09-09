@@ -62,7 +62,7 @@ export const LiquidGlassContainer: React.FC<LiquidGlassContainerProps> = ({
         <div
           className="pointer-events-none absolute -inset-px transition-opacity duration-300 opacity-100"
           style={{
-            background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(201, 168, 76, 0.12), transparent 70%)`,
+            background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 163, 224, 0.12), transparent 70%)`,
             zIndex: 1,
           }}
         />

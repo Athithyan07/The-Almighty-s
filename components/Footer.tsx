@@ -7,7 +7,7 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative mt-16 sm:mt-24 border-t border-amber-600/15 dark:border-amber-400/15 bg-[#FAF8F5] dark:bg-[#09090d] text-[var(--foreground)] overflow-hidden">
+    <footer className="relative mt-16 sm:mt-24 border-t border-sky-500/15 dark:border-sky-300/15 bg-[#FAF8F5] dark:bg-[#09090d] text-[var(--foreground)] overflow-hidden">
       {/* Top Gold Line */}
       <div className="gold-line w-full" />
 
@@ -17,7 +17,7 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div
-                className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl p-1 flex items-center justify-center flex-shrink-0 bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/30 dark:border-amber-400/30"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl p-1 flex items-center justify-center flex-shrink-0 bg-sky-400/10 dark:bg-sky-300/10 border border-sky-400/30 dark:border-sky-300/30"
               >
                 <Image
                   src="/logo.png"
@@ -29,12 +29,12 @@ export function Footer() {
               </div>
               <div>
                 <span
-                  className="font-serif font-bold text-lg text-amber-950 dark:text-stone-100 italic block"
+                  className="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 italic block"
                 >
                   The Almighty&apos;s
                 </span>
                 <span
-                  className="text-[0.55rem] font-bold tracking-[0.22em] uppercase text-[#C9A84C]"
+                  className="text-[0.55rem] font-bold tracking-[0.22em] uppercase text-[#00A3E0]"
                 >
                   Matriculation School
                 </span>
@@ -49,11 +49,11 @@ export function Footer() {
             </p>
 
             <div
-              className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full w-fit bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/30 dark:border-amber-400/30 text-[#C9A84C]"
+              className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full w-fit bg-sky-400/10 dark:bg-sky-300/10 border border-sky-400/30 dark:border-sky-300/30 text-[#00A3E0]"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400"></span>
               </span>
               Academic Session 2026–2027
             </div>
@@ -65,7 +65,7 @@ export function Footer() {
               <div className="flex items-center justify-between gap-3 sm:gap-4">
                 <div>
                   <div
-                    className="text-[0.62rem] font-bold tracking-[0.16em] uppercase text-[#C9A84C]"
+                    className="text-[0.62rem] font-bold tracking-[0.16em] uppercase text-[#00A3E0]"
                   >
                     SASC Integrated Portal
                   </div>
@@ -89,38 +89,38 @@ export function Footer() {
           {/* Quick Links */}
           <div className="space-y-3">
             <h3
-              className="text-[0.7rem] font-bold tracking-[0.2em] uppercase text-[#C9A84C]"
+              className="text-[0.7rem] font-bold tracking-[0.2em] uppercase text-[#00A3E0]"
             >
               Navigation
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-stone-600 dark:text-stone-300">
               <li>
-                <Link href="/" className="hover:text-[#C9A84C] transition-colors">
+                <Link href="/" className="hover:text-[#00A3E0] transition-colors">
                   Home Overview
                 </Link>
               </li>
               <li>
-                <Link href="/achievements" className="hover:text-[#C9A84C] transition-colors">
+                <Link href="/achievements" className="hover:text-[#00A3E0] transition-colors">
                   Honors & Milestones
                 </Link>
               </li>
               <li>
-                <Link href="/facilities" className="hover:text-[#C9A84C] transition-colors">
+                <Link href="/facilities" className="hover:text-[#00A3E0] transition-colors">
                   Campus Facilities
                 </Link>
               </li>
               <li>
-                <Link href="/teachers" className="hover:text-[#C9A84C] transition-colors">
+                <Link href="/teachers" className="hover:text-[#00A3E0] transition-colors">
                   Distinguished Faculty
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-[#C9A84C] transition-colors">
+                <Link href="/gallery" className="hover:text-[#00A3E0] transition-colors">
                   Media & Life Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#C9A84C] transition-colors">
+                <Link href="/about" className="hover:text-[#00A3E0] transition-colors">
                   Institutional Mission
                 </Link>
               </li>
@@ -130,7 +130,7 @@ export function Footer() {
           {/* Academic Wings */}
           <div className="space-y-3">
             <h3
-              className="text-[0.7rem] font-bold tracking-[0.2em] uppercase text-[#C9A84C]"
+              className="text-[0.7rem] font-bold tracking-[0.2em] uppercase text-[#00A3E0]"
             >
               Academic Wings
             </h3>
@@ -147,7 +147,7 @@ export function Footer() {
           {/* Connect / Admissions */}
           <div className="space-y-3">
             <h3
-              className="text-[0.7rem] font-bold tracking-[0.2em] uppercase text-[#C9A84C]"
+              className="text-[0.7rem] font-bold tracking-[0.2em] uppercase text-[#00A3E0]"
             >
               Admissions Desk
             </h3>
@@ -164,7 +164,7 @@ export function Footer() {
               />
               <button
                 aria-label="Submit Email"
-                className="p-2 rounded-full text-slate-900 bg-amber-400 hover:bg-amber-300 transition-all shrink-0 shadow-md"
+                className="p-2 rounded-full text-slate-900 bg-sky-300 hover:bg-sky-400 transition-all shrink-0 shadow-md"
               >
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
@@ -177,13 +177,13 @@ export function Footer() {
         >
           <p>© {new Date().getFullYear()} The Almighty&apos;s Matriculation School. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <span className="hover:text-[#C9A84C] cursor-pointer transition-colors">Admissions Charter</span>
-            <span className="hover:text-[#C9A84C] cursor-pointer transition-colors">Student Code</span>
+            <span className="hover:text-[#00A3E0] cursor-pointer transition-colors">Admissions Charter</span>
+            <span className="hover:text-[#00A3E0] cursor-pointer transition-colors">Student Code</span>
             <a
               href="https://sasc-f.onrender.com/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#C9A84C] inline-flex items-center gap-1 transition-colors text-[#C9A84C] font-medium"
+              className="hover:text-[#00A3E0] inline-flex items-center gap-1 transition-colors text-[#00A3E0] font-medium"
             >
               <span>SASC Portal</span>
               <ExternalLink className="w-3 h-3" />

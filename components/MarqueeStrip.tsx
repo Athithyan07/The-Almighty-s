@@ -28,7 +28,7 @@ export function MarqueeStrip({
 
   return (
     <div
-      className={`w-full overflow-hidden bg-white dark:bg-[#09090d] border-y border-amber-600/20 dark:border-amber-400/20 shadow-sm transition-colors duration-300 ${className}`}
+      className={`w-full overflow-hidden bg-white dark:bg-[#09090d] border-y border-sky-500/20 dark:border-sky-300/20 shadow-sm transition-colors duration-300 ${className}`}
     >
       <div
         style={{
@@ -43,11 +43,11 @@ export function MarqueeStrip({
         {doubled.map((item, i) => (
           <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "0", padding: "0 2rem" }}>
             <span
-              className="font-serif font-bold tracking-[0.22em] uppercase text-xs text-[#C9A84C] dark:text-[#E2C376]"
+              className="font-serif font-bold tracking-[0.22em] uppercase text-xs text-[#00A3E0] dark:text-[#33B8E8]"
             >
               {item}
             </span>
-            <span className="text-[#C9A84C]/60 dark:text-[#C9A84C]/45 text-[0.65rem] ml-8">✦</span>
+            <span className="text-[#00A3E0]/60 dark:text-[#00A3E0]/45 text-[0.65rem] ml-8">✦</span>
           </span>
         ))}
       </div>
