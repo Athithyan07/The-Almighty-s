@@ -25,11 +25,12 @@ export async function POST(req: Request) {
     const { isEmail, isPhone, phoneDigits, email } = parseContact(contact);
     const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
-    // Environment variables for Email (Gmail App Password or SMTP)
+    // Environment variables
     const gmailUser = process.env.GMAIL_USER || "godalmightyschool03@gmail.com";
     const gmailPass = process.env.GMAIL_APP_PASSWORD;
+    const resendApiKey = process.env.RESEND_API_KEY;
 
-    // Create Transporter
+    // Create Nodemailer Transporter (Fallback SMTP)
     let transporter: any = null;
     if (gmailPass) {
       transporter = nodemailer.createTransport({
@@ -111,8 +112,44 @@ export async function POST(req: Request) {
     // Queue all dispatches to run concurrently in parallel
     const notificationPromises: Promise<any>[] = [];
 
-    // Send School Email
-    if (transporter) {
+    // --- High-Speed Email Dispatch (Resend HTTP API or Gmail SMTP) ---
+    if (resendApiKey) {
+      // 🚀 Ultra-fast Resend Transactional HTTP API (< 300ms inbox delivery)
+      notificationPromises.push(
+        fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${resendApiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "The Almighty's School <onboarding@resend.dev>",
+            to: ["godalmightyschool03@gmail.com"],
+            subject: `🔔 Admission Inquiry: ${name} (${grade || "General"})`,
+            html: schoolEmailHtml,
+          }),
+        }).catch((e) => console.error("Resend School Email error:", e))
+      );
+
+      if (isEmail && email) {
+        notificationPromises.push(
+          fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${resendApiKey}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              from: "The Almighty's School <onboarding@resend.dev>",
+              to: [email],
+              subject: `Confirmation: Admission Inquiry Received - The Almighty's School`,
+              html: userConfirmationHtml,
+            }),
+          }).catch((e) => console.error("Resend Parent Email error:", e))
+        );
+      }
+    } else if (transporter) {
+      // Standard Gmail SMTP Transporter
       notificationPromises.push(
         transporter.sendMail({
           from: `"Almighty School Web Portal" <${gmailUser}>`,
@@ -122,21 +159,20 @@ export async function POST(req: Request) {
           html: schoolEmailHtml,
         })
       );
+
+      if (isEmail && email) {
+        notificationPromises.push(
+          transporter.sendMail({
+            from: `"The Almighty's School" <${gmailUser}>`,
+            to: email,
+            subject: `Confirmation: Admission Inquiry Received - The Almighty's School`,
+            html: userConfirmationHtml,
+          })
+        );
+      }
     }
 
-    // Send Parent Confirmation Email
-    if (isEmail && email && transporter) {
-      notificationPromises.push(
-        transporter.sendMail({
-          from: `"The Almighty's School" <${gmailUser}>`,
-          to: email,
-          subject: `Confirmation: Admission Inquiry Received - The Almighty's School`,
-          html: userConfirmationHtml,
-        })
-      );
-    }
-
-    // Send SMS Notification
+    // --- High-Speed SMS Dispatch ---
     if (isPhone && phoneDigits) {
       const fast2smsKey = process.env.FAST2SMS_API_KEY;
       const twilioSid = process.env.TWILIO_ACCOUNT_SID;
@@ -179,17 +215,14 @@ export async function POST(req: Request) {
             }),
           }).catch((e) => console.error("Twilio error:", e))
         );
-      } else {
-        console.log(`[SMS MOCK DISPATCH] To: ${phoneDigits} | Msg: ${smsText}`);
       }
     }
 
-    // Execute dispatches in background without blocking API response
+    // Fire background execution
     Promise.allSettled(notificationPromises).then((results) => {
       console.log("Inquiry notifications dispatched:", results.length);
     });
 
-    // Return instant success response (< 150ms)
     return NextResponse.json({
       success: true,
       message: "Inquiry received. Notifications dispatched.",
