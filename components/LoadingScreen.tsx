@@ -17,8 +17,8 @@ export function LoadingScreen() {
   useEffect(() => {
     if (isLoaded || !isFirstVisit) return;
 
-    const duration = 2000; // 2.0s silky smooth loading
-    const interval = 20;
+    const duration = 1800; // slightly faster for snappier feel
+    const interval = 16; // ~60fps
     const step = 100 / (duration / interval);
 
     const timer = setInterval(() => {
@@ -41,7 +41,7 @@ export function LoadingScreen() {
     setTimeout(() => {
       enterSite();
       router.push("/");
-    }, 600);
+    }, 500);
   };
 
   if (isLoaded && !isExiting) return null;
@@ -54,24 +54,24 @@ export function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.04,
-            filter: "blur(12px)",
-            transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+            scale: 1.03,
+            filter: "blur(10px)",
+            transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
           }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center overflow-hidden select-none"
           style={{ backgroundColor: "#09090d" }}
         >
-          {/* Layered Campus Photo Background - Real High-Visibility Campus Image */}
+          {/* Campus Photo Background */}
           <div className="absolute inset-0 -z-10 pointer-events-none">
             <Image
               src="/1.jpg"
               alt="The Almighty's School Campus"
               fill
               priority
-              className="object-cover opacity-90 scale-100 transition-transform duration-1000"
+              fetchPriority="high"
+              className="object-cover opacity-90"
               style={{ filter: "brightness(0.75) contrast(1.05)" }}
             />
-            {/* Dynamic Subtle Vignette to maintain glass card legibility */}
             <div
               className="absolute inset-0"
               style={{
@@ -81,16 +81,17 @@ export function LoadingScreen() {
             />
           </div>
 
-          {/* Ambient Floating Glow Orbs */}
+          {/* Ambient Glow Orbs */}
           <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-amber-500/20 blur-3xl pointer-events-none animate-pulse" />
           <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-yellow-500/15 blur-3xl pointer-events-none animate-pulse" style={{ animationDelay: "1s" }} />
 
           {!isFirstVisit ? (
-            /* ══ LIQUID GLASS LOADER FOR ROUTE / RELOADS ══ */
+            /* ══ QUICK GLASS LOADER FOR RELOADS / ROUTE TRANSITIONS ══ */
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 flex flex-col items-center gap-5 p-8 rounded-3xl liquid-glass-card shadow-[0_0_50px_rgba(201,168,76,0.25)] border border-amber-500/30 backdrop-blur-2xl"
             >
               <div className="relative w-16 h-16 rounded-2xl p-2 flex items-center justify-center bg-amber-500/15 border border-amber-500/40 shadow-[0_0_25px_rgba(201,168,76,0.3)]">
@@ -115,11 +116,11 @@ export function LoadingScreen() {
               </span>
             </motion.div>
           ) : (
-            /* ══ LIQUID GLASS MORPHISM STARTUP WELCOME MODAL ══ */
+            /* ══ FIRST-VISIT WELCOME SPLASH ══ */
             <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.94 }}
+              initial={{ opacity: 0, y: 28, scale: 0.94 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 flex flex-col items-center text-center px-6 py-10 sm:px-12 sm:py-12 max-w-xl mx-4 rounded-3xl sm:rounded-[2.5rem] liquid-glass-card shadow-[0_30px_80px_rgba(0,0,0,0.85),0_0_60px_rgba(201,168,76,0.25)] border border-white/30 dark:border-amber-500/35 backdrop-blur-2xl"
               style={{
                 background: "linear-gradient(135deg, rgba(25, 25, 38, 0.65) 0%, rgba(12, 12, 20, 0.85) 100%)",
@@ -128,22 +129,22 @@ export function LoadingScreen() {
               {/* Specular Light Bar */}
               <div className="absolute top-0 inset-x-12 h-[1.5px] bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent opacity-80" />
 
-              {/* Liquid Glass Badge at Top */}
+              {/* Certified Badge */}
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.18, duration: 0.4 }}
                 className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[0.62rem] sm:text-xs font-bold tracking-widest uppercase mb-5 border border-amber-500/40 bg-amber-500/10 text-[#C9A84C] shadow-[0_0_20px_rgba(201,168,76,0.2)] backdrop-blur-md"
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>State Board Certified • Est. 1999</span>
               </motion.div>
 
-              {/* Animated Floating Logo Emblem */}
+              {/* Logo */}
               <motion.div
-                initial={{ scale: 0, rotate: -15 }}
+                initial={{ scale: 0, rotate: -12 }}
                 animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 220, damping: 18, delay: 0.15 }}
+                transition={{ type: "spring", stiffness: 230, damping: 18, delay: 0.1 }}
                 className="relative mb-5 group"
               >
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl p-2.5 flex items-center justify-center border border-amber-500/40 bg-gradient-to-br from-white/15 via-white/5 to-transparent shadow-[0_0_35px_rgba(201,168,76,0.35)] backdrop-blur-md">
@@ -155,7 +156,6 @@ export function LoadingScreen() {
                     className="object-contain p-2 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
                   />
                 </div>
-                {/* Floating mini award badge */}
                 <div className="absolute -bottom-1 -right-1 p-1.5 rounded-full bg-[#C9A84C] text-black shadow-md">
                   <Award className="w-3.5 h-3.5" />
                 </div>
@@ -180,7 +180,7 @@ export function LoadingScreen() {
                 Nurturing moral virtue, STEM brilliance, and academic distinction across Kindergarten through Grade 12.
               </p>
 
-              {/* Progress Bar / Enter Button Container */}
+              {/* Progress Bar / Enter Button */}
               <div className="mt-7 w-full flex flex-col items-center">
                 {!isReady ? (
                   <div className="w-full max-w-[280px]">
@@ -192,11 +192,11 @@ export function LoadingScreen() {
                       <span>{Math.floor(progress)}%</span>
                     </div>
 
-                    {/* Liquid Glass Progress Track */}
                     <div className="w-full h-2 rounded-full overflow-hidden p-0.5 border border-amber-500/30 bg-black/40 backdrop-blur-md">
                       <motion.div
                         className="h-full rounded-full relative overflow-hidden bg-gradient-to-r from-amber-600 via-[#C9A84C] to-yellow-300 shadow-[0_0_15px_rgba(201,168,76,0.6)]"
                         style={{ width: `${progress}%` }}
+                        transition={{ ease: "linear" }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-pulse" />
                       </motion.div>
@@ -206,7 +206,7 @@ export function LoadingScreen() {
                   <motion.div
                     initial={{ scale: 0.88, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                    transition={{ type: "spring", stiffness: 380, damping: 22 }}
                     className="w-full flex justify-center"
                   >
                     <button

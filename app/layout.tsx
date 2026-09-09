@@ -52,6 +52,45 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className="dark" data-theme="dark" style={{ colorScheme: "dark" }}>
+      <head>
+        {/*
+          Inline blocking script — runs before ANY CSS or React renders.
+          Ensures dark theme is set immediately, preventing white flash.
+          Falls back to dark if no preference is saved.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function(){
+  try {
+    var t = localStorage.getItem('sasc-theme');
+    var theme = (t === 'light') ? 'light' : 'dark';
+    var root = document.documentElement;
+    root.setAttribute('data-theme', theme);
+    root.style.colorScheme = theme;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  } catch(e) {
+    document.documentElement.classList.add('dark');
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+})();
+            `,
+          }}
+        />
+        {/* Google Fonts preconnect for smooth font loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Merienda:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&display=swap"
+        />
+      </head>
       <body className="antialiased min-h-screen flex flex-col relative transition-colors duration-300">
         {/* Global Total Page Background Image - 95% Visibility */}
         <div className="fixed inset-0 -z-50 pointer-events-none overflow-hidden">
@@ -60,6 +99,7 @@ export default function RootLayout({
             alt="School Campus Background"
             fill
             priority
+            fetchPriority="high"
             className="object-cover"
             style={{ filter: "brightness(0.95) saturate(1.0)" }}
           />

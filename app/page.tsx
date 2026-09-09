@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
+import { useLoading } from "@/components/LoadingContext";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -288,9 +289,15 @@ const FUN_FACTS = [
 export default function HomePage() {
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 600], [0, -50]);
+  const { isLoaded } = useLoading();
 
   return (
-    <div className="w-full overflow-x-hidden">
+    <motion.div
+      className="w-full overflow-x-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isLoaded ? 1 : 0 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+    >
 
       {/* ══ HERO WITH BACKGROUND CAMPUS IMAGE ══ */}
       <section
@@ -620,6 +627,6 @@ export default function HomePage() {
         </div>
       </section>
 
-    </div>
+    </motion.div>
   );
 }
