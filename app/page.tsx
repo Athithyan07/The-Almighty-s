@@ -44,6 +44,7 @@ import {
 /* --- Contact Us Widget --- */
 function ContactWidget() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
@@ -51,10 +52,23 @@ function ContactWidget() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.contact) return;
-    setSubmitted(true);
+    
+    setIsSubmitting(true);
+    try {
+      await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch (err) {
+      console.error("Inquiry submission error:", err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -76,29 +90,40 @@ function ContactWidget() {
           </div>
 
           <div className="space-y-3">
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px]">
-              <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
+            <a
+              href="https://maps.google.com/maps?vet=10CAAQoqAOahcKEwiwquyBluGWAxUAAAAAHQAAAAAQCw..i&sca_esv=444dee17e46a57e2&pvq=Cg0vZy8xMWdkZnNxOXZ2IhkKE3RoZSBhbG1pZ2h0eSBzY2hvb2wQAhgD&lqi=ChN0aGUgYWxtaWdodHkgc2Nob29sWhUiE3RoZSBhbG1pZ2h0eSBzY2hvb2ySAQtoaWdoX3NjaG9vbA&fvr=1&cs=0&um=1&ie=UTF-8&fb=1&gl=in&sa=X&ftid=0x3baa6fcb6b00d9db:0xcd8f0d3baa5c"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px] hover:border-sky-400/50 hover:bg-sky-400/20 dark:hover:bg-white/10 transition-all hover:scale-[1.01] group block"
+            >
+              <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0] group-hover:scale-110 transition-transform" />
               <div>
-                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100">Campus Address</div>
+                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100 group-hover:text-[#00A3E0] transition-colors">Campus Address</div>
                 <div className="text-xs text-neutral-600 dark:text-neutral-400">The Almighty&apos;s School Campus, Main Road, Tamil Nadu</div>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px]">
-              <Phone className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
+            <a
+              href="tel:8098062321"
+              className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px] hover:border-sky-400/50 hover:bg-sky-400/20 dark:hover:bg-white/10 transition-all hover:scale-[1.01] group block"
+            >
+              <Phone className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0] group-hover:scale-110 transition-transform" />
               <div>
-                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100">Call Admissions</div>
-                <div className="text-xs text-neutral-600 dark:text-neutral-400">+91 (044) 2345-6789 / +91 98765 43210</div>
+                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100 group-hover:text-[#00A3E0] transition-colors">Call Admissions</div>
+                <div className="text-xs text-neutral-600 dark:text-neutral-400">+91 80980 62321</div>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px]">
-              <Mail className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
+            <a
+              href="mailto:godalmightyschool03@gmail.com"
+              className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px] hover:border-sky-400/50 hover:bg-sky-400/20 dark:hover:bg-white/10 transition-all hover:scale-[1.01] group block"
+            >
+              <Mail className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0] group-hover:scale-110 transition-transform" />
               <div>
-                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100">Email Us</div>
-                <div className="text-xs text-neutral-600 dark:text-neutral-400">admissions@almightyschool.edu.in</div>
+                <div className="text-sm font-bold text-neutral-900 dark:text-sky-100 group-hover:text-[#00A3E0] transition-colors">Email Us</div>
+                <div className="text-xs text-neutral-600 dark:text-neutral-400">godalmightyschool03@gmail.com</div>
               </div>
-            </div>
+            </a>
 
             <div className="flex items-start gap-3 p-3.5 rounded-2xl border border-sky-500/20 dark:border-sky-300/20 bg-sky-400/10 dark:bg-white/5 backdrop-blur-[5px]">
               <Clock className="w-5 h-5 shrink-0 mt-0.5 text-[#00A3E0]" />
@@ -187,10 +212,9 @@ function ContactWidget() {
                     onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl outline-none transition-all cursor-pointer bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
                   >
-                    <option value="KG - Primary" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Kindergarten & Primary (KG – Grade 5)</option>
-                    <option value="Middle School" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Middle School (Grades 6 – 8)</option>
-                    <option value="High School" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">High School (Grades 9 & 10)</option>
-                    <option value="Higher Secondary" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Higher Secondary (Grades 11 & 12)</option>
+                    <option value="KG - Primary" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Kindergarten  (LKG & UKG)</option>
+                    <option value="Middle School" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Primary (Grade 1- 5)</option>
+                    <option value="High School" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Sencondary (Grades6 - 10)</option>
                   </select>
                 </div>
               </div>
@@ -211,16 +235,17 @@ function ContactWidget() {
               <LiquidGlassButton
                 type="submit"
                 variant="primary"
+                disabled={isSubmitting}
                 className="w-full justify-center mt-2"
               >
-                <Send className="w-3.5 h-3.5 text-[#00A3E0]" />
-                Submit Admission Inquiry
+                <Send className={`w-3.5 h-3.5 text-[#00A3E0] ${isSubmitting ? "animate-spin" : ""}`} />
+                {isSubmitting ? "Dispatching Inquiry..." : "Submit Admission Inquiry"}
               </LiquidGlassButton>
             </form>
           )}
         </div>
       </div>
-    </LiquidGlassCard>
+    </LiquidGlassCard >
   );
 }
 
@@ -279,10 +304,10 @@ const PILLARS = [
 ];
 
 const FUN_FACTS = [
-  { emoji: "🧪", text: "35+ science & computer labs" },
-  { emoji: "🎭", text: "Annual festival with 20+ events" },
+  { emoji: "🚵‍♀️", text: "Easily Commutable" },
+  { emoji: "🎭", text: "20+ years of Excellence" },
   { emoji: "🌱", text: "Eco-certified green campus" },
-  { emoji: "🤖", text: "Robotics & AI innovation club" },
+  { emoji: "🤖", text: "Robotics & AI Driven Classes" },
 ];
 
 /* --- Page --- */
@@ -351,7 +376,7 @@ export default function HomePage() {
               className="editorial-heading-lg"
               style={{ fontSize: "clamp(1.9rem, 6.5vw, 6rem)" }}
             >
-              Shaping Futures
+              "Education with Gods Love"
               <br />
               <em className="text-[#00A3E0] italic">Since 2003</em>
             </motion.h1>
@@ -371,8 +396,7 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="luxury-text-readable max-w-lg mx-auto font-editorial italic text-xs sm:text-base md:text-lg leading-relaxed text-neutral-800 dark:text-neutral-200"
             >
-              The Almighty&apos;s Matriculation School — where moral virtue,
-              STEM excellence and world-class academics converge.
+              The Almighty&apos;s Matriculation School — A disciplined and progressive institution providing quality education through modern standards and advanced technology.
             </motion.p>
           </LiquidGlassCard>
 
