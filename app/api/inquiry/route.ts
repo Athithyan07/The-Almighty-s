@@ -82,16 +82,22 @@ async function sendEmailNotification({
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, contact, grade, message } = body;
+    const { name, contact, phone, email, grade, message } = body;
 
-    if (!name || !contact) {
+    const rawContact = contact || `${phone || ""} | ${email || ""}`.trim();
+
+    if (!name || !rawContact) {
       return NextResponse.json(
         { success: false, error: "Name and Contact details are required." },
         { status: 400 }
       );
     }
 
-    const { isEmail, isPhone, phoneDigits, email } = parseContact(contact);
+    const parsed = parseContact(rawContact);
+    const parentEmail = (email && email.includes("@")) ? email.trim() : parsed.email;
+    const parentPhoneDigits = phone ? phone.replace(/\D/g, "") : parsed.phoneDigits;
+    const isPhone = parentPhoneDigits.length >= 10;
+    const isEmail = !!parentEmail;
     const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
     // Environment variables
@@ -231,19 +237,19 @@ export async function POST(req: Request) {
       transporter,
       gmailUser,
       to: "godalmightyschool03@gmail.com",
-      replyTo: isEmail ? email! : undefined,
+      replyTo: parentEmail || undefined,
       subject: `🔔 Admission Inquiry: ${name} (${grade || "General"})`,
       html: schoolEmailHtml,
     });
 
     // Dispatch Parent Confirmation Email (if parent provided an email)
     let parentEmailPromise: Promise<any> = Promise.resolve();
-    if (isEmail && email) {
+    if (parentEmail) {
       parentEmailPromise = sendEmailNotification({
         resendApiKey,
         transporter,
         gmailUser,
-        to: email,
+        to: parentEmail,
         subject: `Confirmation: Admission Inquiry Received - The Almighty's School`,
         html: userConfirmationHtml,
       });
@@ -251,7 +257,7 @@ export async function POST(req: Request) {
 
     // Dispatch SMS Notification (if parent provided phone digits)
     let smsPromise: Promise<any> = Promise.resolve();
-    if (isPhone && phoneDigits) {
+    if (isPhone && parentPhoneDigits) {
       const fast2smsKey = process.env.FAST2SMS_API_KEY;
       const twilioSid = process.env.TWILIO_ACCOUNT_SID;
       const twilioToken = process.env.TWILIO_AUTH_TOKEN;
@@ -271,12 +277,12 @@ export async function POST(req: Request) {
             message: smsText,
             language: "english",
             flash: 0,
-            numbers: phoneDigits,
+            numbers: parentPhoneDigits,
           }),
         }).catch((e) => console.error("Fast2SMS error:", e));
       } else if (twilioSid && twilioToken && twilioFrom) {
         const auth = Buffer.from(`${twilioSid}:${twilioToken}`).toString("base64");
-        const formattedPhone = phoneDigits.startsWith("91") ? `+${phoneDigits}` : `+91${phoneDigits}`;
+        const formattedPhone = parentPhoneDigits.startsWith("91") ? `+${parentPhoneDigits}` : `+91${parentPhoneDigits}`;
         smsPromise = fetch(`https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`, {
           method: "POST",
           headers: {

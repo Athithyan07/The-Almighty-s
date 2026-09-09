@@ -47,21 +47,25 @@ function ContactWidget() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    contact: "",
+    phone: "",
+    email: "",
     grade: "KG - Primary",
     message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.contact) return;
+    if (!formData.name || (!formData.phone && !formData.email)) return;
     
     setIsSubmitting(true);
     try {
       await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          contact: `${formData.phone} | ${formData.email}`.trim(),
+        }),
       });
     } catch (err) {
       console.error("Inquiry submission error:", err);
@@ -163,7 +167,7 @@ function ContactWidget() {
                 Thank you, {formData.name}. Our admissions desk has received your details and will get in touch with you shortly.
               </p>
               <button
-                onClick={() => { setSubmitted(false); setFormData({ name: "", contact: "", grade: "KG - Primary", message: "" }); }}
+                onClick={() => { setSubmitted(false); setFormData({ name: "", phone: "", email: "", grade: "KG - Primary", message: "" }); }}
                 className="minimal-btn mt-4 text-xs font-bold uppercase tracking-wider px-4 py-2"
               >
                 Send Another Inquiry
@@ -191,32 +195,46 @@ function ContactWidget() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-neutral-800 dark:text-neutral-200 text-xs font-bold tracking-wider uppercase block mb-1.5">
-                    Phone or Email *
+                    Mobile Phone Number *
                   </label>
                   <input
-                    type="text"
+                    type="tel"
                     required
-                    value={formData.contact}
-                    onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                    placeholder="Phone / Email ID"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="e.g. 8098062321"
                     className="w-full px-4 py-3 rounded-xl outline-none transition-all bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
                   />
                 </div>
 
                 <div>
                   <label className="text-neutral-800 dark:text-neutral-200 text-xs font-bold tracking-wider uppercase block mb-1.5">
-                    Grade / Admission Class
+                    Email Address *
                   </label>
-                  <select
-                    value={formData.grade}
-                    onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl outline-none transition-all cursor-pointer bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
-                  >
-                    <option value="KG - Primary" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Kindergarten  (LKG & UKG)</option>
-                    <option value="Middle School" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Primary (Grade 1- 5)</option>
-                    <option value="High School" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Sencondary (Grades6 - 10)</option>
-                  </select>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="e.g. parent@gmail.com"
+                    className="w-full px-4 py-3 rounded-xl outline-none transition-all bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
+                  />
                 </div>
+              </div>
+
+              <div>
+                <label className="text-neutral-800 dark:text-neutral-200 text-xs font-bold tracking-wider uppercase block mb-1.5">
+                  Grade / Admission Class
+                </label>
+                <select
+                  value={formData.grade}
+                  onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl outline-none transition-all cursor-pointer bg-white/90 dark:bg-black/50 border border-neutral-300/80 dark:border-white/20 text-neutral-900 dark:text-neutral-100 text-sm focus:border-sky-400 dark:focus:border-sky-300 font-medium"
+                >
+                  <option value="KG - Primary" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Kindergarten (LKG & UKG)</option>
+                  <option value="Primary" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Primary (Grades 1 - 5)</option>
+                  <option value="Secondary" className="text-neutral-900 bg-white dark:bg-neutral-900 dark:text-neutral-100">Secondary (Grades 6 - 10)</option>
+                </select>
               </div>
 
               <div>
