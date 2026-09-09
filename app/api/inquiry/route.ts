@@ -111,71 +111,118 @@ export async function POST(req: Request) {
       });
     }
 
-    /* ── 1. SCHOOL EMAIL HTML ── */
+    const logoUrl = "https://sasc-f.onrender.com/logo.png";
+
+    /* ── 1. SCHOOL EMAIL HTML WITH MERIENDA FONT & LOGO ── */
     const schoolEmailHtml = `
-      <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #09090d; color: #F0ECE4; border: 1px solid #00A3E0; border-radius: 16px; padding: 30px;">
-        <div style="text-align: center; border-bottom: 1px solid rgba(0,163,224,0.3); padding-bottom: 20px; margin-bottom: 20px;">
-          <h2 style="color: #00A3E0; margin: 0; font-size: 24px;">The Almighty's Matriculation School</h2>
-          <p style="color: #B8B0A4; font-size: 13px; margin-top: 4px; text-transform: uppercase; letter-spacing: 2px;">New Admission Inquiry Received</p>
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+          .school-heading {
+            font-family: 'Merienda', 'Playfair Display', Georgia, serif !important;
+            color: #00A3E0 !important;
+            margin: 10px 0 0 0 !important;
+            font-size: 24px !important;
+            font-weight: 700 !important;
+          }
+        </style>
+      </head>
+      <body style="margin: 0; padding: 20px; background-color: #050508; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <div style="max-width: 600px; margin: 0 auto; background-color: #09090d; color: #F0ECE4; border: 1px solid #00A3E0; border-radius: 20px; padding: 32px; box-shadow: 0 10px 30px rgba(0,163,224,0.15);">
+          <!-- Header with Logo and Merienda Font -->
+          <div style="text-align: center; border-bottom: 1px solid rgba(0,163,224,0.25); padding-bottom: 24px; margin-bottom: 24px;">
+            <img src="${logoUrl}" alt="The Almighty's School Logo" style="width: 76px; height: 76px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,163,224,0.4));" />
+            <h2 className="school-heading" style="font-family: 'Merienda', 'Playfair Display', Georgia, serif; color: #00A3E0; margin: 10px 0 0 0; font-size: 24px; font-weight: 700;">The Almighty's Matriculation School</h2>
+            <p style="color: #B8B0A4; font-size: 12px; margin-top: 6px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">New Admission Inquiry Received</p>
+          </div>
+
+          <!-- Inquiry Details Card -->
+          <div style="background: rgba(255,255,255,0.04); border-radius: 14px; padding: 22px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+              <tr>
+                <td style="padding: 10px 0; color: #888899; width: 130px; font-weight: 600;">Parent Name:</td>
+                <td style="padding: 10px 0; color: #FFFFFF; font-weight: 700; font-size: 15px;">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; color: #888899; font-weight: 600;">Contact Info:</td>
+                <td style="padding: 10px 0; color: #00A3E0; font-weight: 700; font-size: 15px;">${contact}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; color: #888899; font-weight: 600;">Grade Wing:</td>
+                <td style="padding: 10px 0; color: #FFFFFF; font-weight: 600;">${grade || "Not Specified"}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; color: #888899; font-weight: 600;">Submitted At:</td>
+                <td style="padding: 10px 0; color: #B8B0A4;">${timestamp}</td>
+              </tr>
+            </table>
+          </div>
+
+          ${
+            message
+              ? `<div style="background: rgba(0,163,224,0.08); border-left: 4px solid #00A3E0; padding: 16px; border-radius: 10px; margin-bottom: 24px;">
+                  <p style="margin: 0 0 6px 0; color: #00A3E0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Message / Note from Parent:</p>
+                  <p style="margin: 0; color: #F0ECE4; font-style: italic; font-size: 14px; line-height: 1.5;">"${message}"</p>
+                 </div>`
+              : ""
+          }
+
+          <div style="text-align: center; font-size: 12px; color: #888899; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px;">
+            <p style="margin: 0;">This inquiry was submitted from the official school web portal.</p>
+          </div>
         </div>
-        <div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-          <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-            <tr>
-              <td style="padding: 8px 0; color: #888899; width: 130px; font-weight: bold;">Parent Name:</td>
-              <td style="padding: 8px 0; color: #FFFFFF; font-weight: bold;">${name}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; color: #888899; font-weight: bold;">Contact Info:</td>
-              <td style="padding: 8px 0; color: #00A3E0; font-weight: bold;">${contact}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; color: #888899; font-weight: bold;">Grade Wing:</td>
-              <td style="padding: 8px 0; color: #FFFFFF;">${grade || "Not Specified"}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; color: #888899; font-weight: bold;">Submitted At:</td>
-              <td style="padding: 8px 0; color: #B8B0A4;">${timestamp}</td>
-            </tr>
-          </table>
-        </div>
-        ${
-          message
-            ? `<div style="background: rgba(0,163,224,0.08); border-left: 3px solid #00A3E0; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <p style="margin: 0 0 5px 0; color: #00A3E0; font-size: 12px; font-weight: bold; text-transform: uppercase;">Message / Note:</p>
-                <p style="margin: 0; color: #F0ECE4; font-style: italic; font-size: 14px;">"${message}"</p>
-               </div>`
-            : ""
-        }
-        <div style="text-align: center; font-size: 12px; color: #888899; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-          <p style="margin: 0;">This inquiry was submitted from the official school website portal.</p>
-        </div>
-      </div>
+      </body>
+      </html>
     `;
 
-    /* ── 2. USER CONFIRMATION EMAIL HTML ── */
+    /* ── 2. USER CONFIRMATION EMAIL HTML WITH MERIENDA FONT & LOGO ── */
     const userConfirmationHtml = `
-      <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #09090d; color: #F0ECE4; border: 1px solid #00A3E0; border-radius: 16px; padding: 30px;">
-        <div style="text-align: center; border-bottom: 1px solid rgba(0,163,224,0.3); padding-bottom: 20px; margin-bottom: 20px;">
-          <h2 style="color: #00A3E0; margin: 0; font-size: 24px;">The Almighty's Matriculation School</h2>
-          <p style="color: #B8B0A4; font-size: 13px; margin-top: 4px; text-transform: uppercase; letter-spacing: 2px;">Admission Inquiry Confirmation</p>
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+          .school-heading {
+            font-family: 'Merienda', 'Playfair Display', Georgia, serif !important;
+            color: #00A3E0 !important;
+            margin: 10px 0 0 0 !important;
+            font-size: 24px !important;
+            font-weight: 700 !important;
+          }
+        </style>
+      </head>
+      <body style="margin: 0; padding: 20px; background-color: #050508; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <div style="max-width: 600px; margin: 0 auto; background-color: #09090d; color: #F0ECE4; border: 1px solid #00A3E0; border-radius: 20px; padding: 32px; box-shadow: 0 10px 30px rgba(0,163,224,0.15);">
+          <!-- Header with Logo and Merienda Font -->
+          <div style="text-align: center; border-bottom: 1px solid rgba(0,163,224,0.25); padding-bottom: 24px; margin-bottom: 24px;">
+            <img src="${logoUrl}" alt="The Almighty's School Logo" style="width: 76px; height: 76px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,163,224,0.4));" />
+            <h2 className="school-heading" style="font-family: 'Merienda', 'Playfair Display', Georgia, serif; color: #00A3E0; margin: 10px 0 0 0; font-size: 24px; font-weight: 700;">The Almighty's Matriculation School</h2>
+            <p style="color: #B8B0A4; font-size: 12px; margin-top: 6px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Admission Inquiry Confirmation</p>
+          </div>
+
+          <p style="font-size: 15px; color: #FFFFFF; line-height: 1.6;">Dear <strong>${name}</strong>,</p>
+          <p style="font-size: 14px; color: #B8B0A4; line-height: 1.6;">
+            Thank you for contacting <strong>The Almighty's Matriculation School</strong> regarding admission for <strong>${grade || "your ward"}</strong>.
+          </p>
+          <p style="font-size: 14px; color: #B8B0A4; line-height: 1.6;">
+            Our Admissions Desk has received your inquiry. An admissions counsellor will contact you shortly via <strong>${contact}</strong> to assist with the admission procedure, fee details, and campus visit.
+          </p>
+
+          <div style="background: rgba(0,163,224,0.08); border-radius: 14px; padding: 20px; margin: 24px 0; border: 1px solid rgba(0,163,224,0.3);">
+            <h4 style="margin: 0 0 12px 0; color: #00A3E0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Direct Admissions Helpline:</h4>
+            <p style="margin: 0 0 6px 0; font-size: 14px; color: #FFFFFF;">📞 Phone: <strong>+91 80980 62321</strong></p>
+            <p style="margin: 0 0 6px 0; font-size: 14px; color: #FFFFFF;">✉️ Email: <strong>godalmightyschool03@gmail.com</strong></p>
+            <p style="margin: 0; font-size: 14px; color: #FFFFFF;">📍 Address: The Almighty's School Campus, Main Road, Tamil Nadu</p>
+          </div>
+
+          <div style="text-align: center; font-size: 12px; color: #888899; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px;">
+            <p style="margin: 0;">With warm regards,<br/><strong style="color: #00A3E0; font-family: 'Merienda', Georgia, serif; font-size: 14px;">Admissions Desk — The Almighty's Matriculation School</strong></p>
+          </div>
         </div>
-        <p style="font-size: 15px; color: #FFFFFF; line-height: 1.6;">Dear <strong>${name}</strong>,</p>
-        <p style="font-size: 14px; color: #B8B0A4; line-height: 1.6;">
-          Thank you for contacting <strong>The Almighty's Matriculation School</strong> regarding admission for <strong>${grade || "your ward"}</strong>.
-        </p>
-        <p style="font-size: 14px; color: #B8B0A4; line-height: 1.6;">
-          Our Admissions Desk has received your inquiry details. An admissions counsellor will contact you shortly via <strong>${contact}</strong> to assist with the admission procedure, fee details, and campus tour.
-        </p>
-        <div style="background: rgba(0,163,224,0.1); border-radius: 12px; padding: 18px; margin: 25px 0; border: 1px solid rgba(0,163,224,0.3);">
-          <h4 style="margin: 0 0 10px 0; color: #00A3E0; font-size: 14px;">Direct Admissions Helpline:</h4>
-          <p style="margin: 0; font-size: 14px; color: #FFFFFF;">📞 Phone: <strong>+91 80980 62321</strong></p>
-          <p style="margin: 4px 0 0 0; font-size: 14px; color: #FFFFFF;">✉️ Email: <strong>godalmightyschool03@gmail.com</strong></p>
-          <p style="margin: 4px 0 0 0; font-size: 14px; color: #FFFFFF;">📍 Address: The Almighty's School Campus, Main Road, Tamil Nadu</p>
-        </div>
-        <div style="text-align: center; font-size: 12px; color: #888899; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-          <p style="margin: 0;">With regards,<br/><strong style="color: #00A3E0;">Admissions Desk — The Almighty's Matriculation School</strong></p>
-        </div>
-      </div>
+      </body>
+      </html>
     `;
 
     // Dispatch School Notification Email
