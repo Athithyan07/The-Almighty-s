@@ -17,28 +17,37 @@ export function Scroll3DReveal({
   direction = "up",
   className = "",
 }: Scroll3DRevealProps) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  const staggerDelay = isMobile ? 0 : Math.min((index % 4) * 0.08, 0.3);
+  // On mobile: tiny fade-in, no Y offset, no delay, very fast
+  if (isMobile) {
+    return (
+      <div className={className}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px" }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+        >
+          {children}
+        </motion.div>
+      </div>
+    );
+  }
+
+  const staggerDelay = Math.min((index % 4) * 0.08, 0.3);
 
   const getInitial = () => {
-    if (isMobile) {
-      return { opacity: 0, y: 12 };
-    }
     switch (direction) {
-      case "left":
-        return { opacity: 0, scale: 0.96, x: -20, y: 8 };
-      case "right":
-        return { opacity: 0, scale: 0.96, x: 20, y: 8 };
-      case "scale":
-        return { opacity: 0, scale: 0.94, y: 14 };
+      case "left":  return { opacity: 0, scale: 0.96, x: -20, y: 8 };
+      case "right": return { opacity: 0, scale: 0.96, x: 20, y: 8 };
+      case "scale": return { opacity: 0, scale: 0.94, y: 14 };
       case "up":
-      default:
-        return { opacity: 0, scale: 0.96, y: 18 };
+      default:      return { opacity: 0, scale: 0.96, y: 18 };
     }
   };
 
@@ -46,18 +55,9 @@ export function Scroll3DReveal({
     <div className={className}>
       <motion.div
         initial={getInitial()}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-          y: 0,
-          scale: 1,
-        }}
+        whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
         viewport={{ once: true, margin: "0px" }}
-        transition={{
-          duration: isMobile ? 0.4 : 0.7,
-          ease: [0.16, 1, 0.3, 1],
-          delay: staggerDelay,
-        }}
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: staggerDelay }}
         style={{ transform: "translateZ(0)" }}
       >
         {children}

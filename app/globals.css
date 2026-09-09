@@ -709,24 +709,61 @@ html:not(.dark) textarea::placeholder {
   );
 }
 
-/* ── Mobile Performance & Layout Symmetry Optimizations ── */
+/* ── Mobile Performance Optimizations ── */
 @media (max-width: 768px) {
   html, body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
 
+  /* Kill all backdrop-filter on mobile — biggest GPU saver */
+  .liquid-glass-card,
+  .liquid-glass-container,
+  .liquid-glass,
+  .liquid-glass-button,
+  .liquid-glass-dock,
+  .bg-tint-widget,
+  .bg-tint-badge {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Simplify glass backgrounds on mobile */
   .liquid-glass-card,
   .liquid-glass-container {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(15, 15, 22, 0.88) !important;
   }
 
-  .animated-line-pattern::before {
-    animation-duration: 22s;
+  [data-theme="light"] .liquid-glass-card,
+  [data-theme="light"] .liquid-glass-container,
+  html:not(.dark) .liquid-glass-card,
+  html:not(.dark) .liquid-glass-container {
+    background: rgba(255, 255, 255, 0.92) !important;
   }
 
+  /* Disable animated line patterns on mobile — pure CPU/GPU drain */
+  .animated-line-pattern::before,
   .animated-line-pattern::after {
-    animation-duration: 12s;
+    display: none !important;
+  }
+
+  /* Disable floating blob animations on mobile */
+  .animate-blob-slow,
+  .animate-blob-slower,
+  .animate-blob-fast {
+    animation: none !important;
+  }
+
+  /* Reduce motion for all scroll reveal / float animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-float,
+    .animate-pulse-glow {
+      animation-duration: 6s;
+    }
+  }
+
+  /* Slim down padding on luxury sections for mobile */
+  .luxury-section {
+    padding: 2.5rem 1rem !important;
   }
 }
