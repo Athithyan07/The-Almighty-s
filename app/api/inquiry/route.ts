@@ -10,6 +10,75 @@ function parseContact(contact: string) {
   return { isEmail, isPhone, phoneDigits, email: isEmail ? contact.trim() : null };
 }
 
+// Helper to send email with Resend HTTP API + automatic Gmail SMTP fallback
+async function sendEmailNotification({
+  resendApiKey,
+  transporter,
+  gmailUser,
+  to,
+  replyTo,
+  subject,
+  html,
+}: {
+  resendApiKey?: string;
+  transporter?: any;
+  gmailUser: string;
+  to: string;
+  replyTo?: string;
+  subject: string;
+  html: string;
+}) {
+  let sent = false;
+
+  // 1. Try Resend HTTP API
+  if (resendApiKey) {
+    try {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendApiKey.trim()}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "onboarding@resend.dev",
+          to: [to],
+          subject,
+          html,
+          reply_to: replyTo,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        console.log(`[Resend SUCCESS] Email sent to ${to}:`, data.id);
+        sent = true;
+      } else {
+        console.error(`[Resend FAILED] Status ${res.status}:`, data);
+      }
+    } catch (err) {
+      console.error("[Resend Error]:", err);
+    }
+  }
+
+  // 2. Fallback to Gmail SMTP if Resend was not configured or failed
+  if (!sent && transporter) {
+    try {
+      const info = await transporter.sendMail({
+        from: `"The Almighty's School" <${gmailUser}>`,
+        to,
+        replyTo,
+        subject,
+        html,
+      });
+      console.log(`[Gmail SMTP SUCCESS] Email sent to ${to}:`, info.messageId);
+      sent = true;
+    } catch (err) {
+      console.error("[Gmail SMTP Error]:", err);
+    }
+  }
+
+  return sent;
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -109,70 +178,32 @@ export async function POST(req: Request) {
       </div>
     `;
 
-    // Queue all dispatches to run concurrently in parallel
-    const notificationPromises: Promise<any>[] = [];
+    // Dispatch School Notification Email
+    const schoolEmailPromise = sendEmailNotification({
+      resendApiKey,
+      transporter,
+      gmailUser,
+      to: "godalmightyschool03@gmail.com",
+      replyTo: isEmail ? email! : undefined,
+      subject: `🔔 Admission Inquiry: ${name} (${grade || "General"})`,
+      html: schoolEmailHtml,
+    });
 
-    // --- High-Speed Email Dispatch (Resend HTTP API or Gmail SMTP) ---
-    if (resendApiKey) {
-      // 🚀 Ultra-fast Resend Transactional HTTP API (< 300ms inbox delivery)
-      notificationPromises.push(
-        fetch("https://api.resend.com/emails", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${resendApiKey}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            from: "The Almighty's School <onboarding@resend.dev>",
-            to: ["godalmightyschool03@gmail.com"],
-            subject: `🔔 Admission Inquiry: ${name} (${grade || "General"})`,
-            html: schoolEmailHtml,
-          }),
-        }).catch((e) => console.error("Resend School Email error:", e))
-      );
-
-      if (isEmail && email) {
-        notificationPromises.push(
-          fetch("https://api.resend.com/emails", {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${resendApiKey}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              from: "The Almighty's School <onboarding@resend.dev>",
-              to: [email],
-              subject: `Confirmation: Admission Inquiry Received - The Almighty's School`,
-              html: userConfirmationHtml,
-            }),
-          }).catch((e) => console.error("Resend Parent Email error:", e))
-        );
-      }
-    } else if (transporter) {
-      // Standard Gmail SMTP Transporter
-      notificationPromises.push(
-        transporter.sendMail({
-          from: `"Almighty School Web Portal" <${gmailUser}>`,
-          to: "godalmightyschool03@gmail.com",
-          replyTo: isEmail ? email! : undefined,
-          subject: `🔔 Admission Inquiry: ${name} (${grade || "General"})`,
-          html: schoolEmailHtml,
-        })
-      );
-
-      if (isEmail && email) {
-        notificationPromises.push(
-          transporter.sendMail({
-            from: `"The Almighty's School" <${gmailUser}>`,
-            to: email,
-            subject: `Confirmation: Admission Inquiry Received - The Almighty's School`,
-            html: userConfirmationHtml,
-          })
-        );
-      }
+    // Dispatch Parent Confirmation Email (if parent provided an email)
+    let parentEmailPromise: Promise<any> = Promise.resolve();
+    if (isEmail && email) {
+      parentEmailPromise = sendEmailNotification({
+        resendApiKey,
+        transporter,
+        gmailUser,
+        to: email,
+        subject: `Confirmation: Admission Inquiry Received - The Almighty's School`,
+        html: userConfirmationHtml,
+      });
     }
 
-    // --- High-Speed SMS Dispatch ---
+    // Dispatch SMS Notification (if parent provided phone digits)
+    let smsPromise: Promise<any> = Promise.resolve();
     if (isPhone && phoneDigits) {
       const fast2smsKey = process.env.FAST2SMS_API_KEY;
       const twilioSid = process.env.TWILIO_ACCOUNT_SID;
@@ -181,51 +212,47 @@ export async function POST(req: Request) {
       const smsText = `Dear ${name}, thank you for inquiring about admission at The Almighty's Matriculation School (${grade}). Our team will call you shortly. Helpline: +91 8098062321`;
 
       if (fast2smsKey) {
-        notificationPromises.push(
-          fetch("https://www.fast2sms.com/dev/bulkV2", {
-            method: "POST",
-            headers: {
-              authorization: fast2smsKey,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              route: "v3",
-              sender_id: "TXTIND",
-              message: smsText,
-              language: "english",
-              flash: 0,
-              numbers: phoneDigits,
-            }),
-          }).catch((e) => console.error("Fast2SMS error:", e))
-        );
+        smsPromise = fetch("https://www.fast2sms.com/dev/bulkV2", {
+          method: "POST",
+          headers: {
+            authorization: fast2smsKey,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            route: "v3",
+            sender_id: "TXTIND",
+            message: smsText,
+            language: "english",
+            flash: 0,
+            numbers: phoneDigits,
+          }),
+        }).catch((e) => console.error("Fast2SMS error:", e));
       } else if (twilioSid && twilioToken && twilioFrom) {
         const auth = Buffer.from(`${twilioSid}:${twilioToken}`).toString("base64");
         const formattedPhone = phoneDigits.startsWith("91") ? `+${phoneDigits}` : `+91${phoneDigits}`;
-        notificationPromises.push(
-          fetch(`https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`, {
-            method: "POST",
-            headers: {
-              Authorization: `Basic ${auth}`,
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams({
-              To: formattedPhone,
-              From: twilioFrom,
-              Body: smsText,
-            }),
-          }).catch((e) => console.error("Twilio error:", e))
-        );
+        smsPromise = fetch(`https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`, {
+          method: "POST",
+          headers: {
+            Authorization: `Basic ${auth}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            To: formattedPhone,
+            From: twilioFrom,
+            Body: smsText,
+          }),
+        }).catch((e) => console.error("Twilio error:", e));
       }
     }
 
-    // Fire background execution
-    Promise.allSettled(notificationPromises).then((results) => {
-      console.log("Inquiry notifications dispatched:", results.length);
+    // Execute dispatches
+    Promise.allSettled([schoolEmailPromise, parentEmailPromise, smsPromise]).then((results) => {
+      console.log("Inquiry notifications processing complete.");
     });
 
     return NextResponse.json({
       success: true,
-      message: "Inquiry received. Notifications dispatched.",
+      message: "Inquiry received. Notifications processing.",
     });
   } catch (error: any) {
     console.error("Inquiry Submission Error:", error);
